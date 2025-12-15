@@ -37,3 +37,5 @@ Thumbs.db
 .gemini/
 *.md.backup
 HEDGE_VAULT_HANDLER.txt
+TESTING_GUIDE.md
+docs/TESTING_GUIDE.md
