@@ -1,3 +1,4 @@
+// DeCipherLabs - Premium Design V1.1
 import React, { useState, useEffect } from 'react';
 import LandingPage from './components/LandingPage';
 import PayrollDashboard from './components/PayrollDashboard';
