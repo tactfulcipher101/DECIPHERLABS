@@ -1,0 +1,34 @@
+# Temporary documentation files (old addresses)
+FRONTEND_UPDATED.md
+HEDGE_VAULT_FIX.md
+
+# Dummy/unused folders
+.factory/
+
+# Artifacts and workflow files
+.gemini/
+*.md.backup
+
+# Node modules
+node_modules/
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Temporary files
+*.tmp
+*.log
+*.bak
+
+# Environment files
+.env
+.env.local
+.env.production

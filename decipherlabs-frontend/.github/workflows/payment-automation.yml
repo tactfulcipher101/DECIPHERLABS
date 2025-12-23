@@ -1,0 +1,32 @@
+name: Automated Payment Processing
+
+on:
+  # Run every hour (supports hourly, daily, weekly, biweekly, monthly payments)
+  schedule:
+    - cron: '0 * * * *'  # Every hour at minute 0
+  
+  # Allow manual trigger from GitHub UI
+  workflow_dispatch:
+
+jobs:
+  process-payments:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+      
+      - name: Install dependencies
+        run: npm install
+      
+      - name: Run payment automation
+        env:
+          PRIVATE_KEY: ${{ secrets.PRIVATE_KEY }}
+          PAYROLL_CONTRACT_ADDRESS: ${{ secrets.PAYROLL_CONTRACT_ADDRESS }}
+          RPC_URL: ${{ secrets.RPC_URL }}
+        run: npm run cron

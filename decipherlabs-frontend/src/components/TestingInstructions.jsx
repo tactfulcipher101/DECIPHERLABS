@@ -109,7 +109,7 @@ const TestingInstructions = () => {
             </div>
           </div>
 
-          <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-lg p-4">
+          <div className="bg-slate-800/50 border border-slate-700 rounded-lg p-4">
             <h4 className="font-bold text-purple-300 mb-2">Risk Level Examples:</h4>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
               <div className="bg-slate-800/30 p-3 rounded border border-green-500/20">
@@ -180,7 +180,7 @@ const TestingInstructions = () => {
     <div className="max-w-6xl mx-auto p-6">
       <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
         <div className="text-center mb-8">
-          <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+          <h2 className="text-3xl font-bold text-white mb-2">
             Testing Instructions
           </h2>
           <p className="text-slate-400 max-w-2xl mx-auto">
@@ -194,8 +194,8 @@ const TestingInstructions = () => {
               key={step.id}
               onClick={() => setActiveTab(step.id)}
               className={`px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors ${activeTab === step.id
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
+                ? 'bg-blue-600 text-white'
+                : 'bg-slate-800 text-slate-300 hover:bg-slate-700'
                 }`}
             >
               <step.icon className="w-4 h-4" />
@@ -208,7 +208,7 @@ const TestingInstructions = () => {
           {steps.find(s => s.id === activeTab)?.content}
         </div>
 
-        <div className="mt-8 bg-gradient-to-r from-green-900/20 to-blue-900/20 border border-green-500/20 rounded-xl p-6">
+        <div className="mt-8 bg-blue-900/20 border border-blue-500/20 rounded-xl p-6">
           <h3 className="text-xl font-bold text-white mb-3">Ready to Test?</h3>
           <p className="text-slate-300 mb-4">
             With your payroll deployed and test tokens received,

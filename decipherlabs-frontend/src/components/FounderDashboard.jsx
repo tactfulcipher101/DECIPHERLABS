@@ -143,7 +143,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
   // Access denied for non-owners
   if (checkingOwner) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white flex items-center justify-center">
+      <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center">
         <div className="text-center">
           <Shield className="w-16 h-16 text-blue-400 mx-auto mb-4 animate-pulse" />
           <p className="text-slate-400">Verifying access...</p>
@@ -154,7 +154,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
 
   if (!isOwner) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white flex items-center justify-center">
+      <div className="min-h-screen bg-slate-900 text-white flex items-center justify-center">
         <div className="max-w-md text-center">
           <Shield className="w-16 h-16 text-red-400 mx-auto mb-4" />
           <h2 className="text-2xl font-bold mb-2">Access Denied</h2>
@@ -171,14 +171,14 @@ const FounderDashboard = ({ account, onNavigate }) => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
+    <div className="min-h-screen bg-slate-900 text-white">
       {/* Header */}
-      <header className="border-b border-blue-500/20 bg-slate-950/50 backdrop-blur-lg">
+      <header className="border-b border-blue-500/20 bg-slate-900/50 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Shield className="w-8 h-8 text-blue-400" />
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-white">
                 DeCipherLabs Founder Dashboard
               </h1>
             </div>

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { 
+import {
   Wallet, DollarSign, Calendar, Clock, TrendingUp,
   ArrowLeft, CheckCircle, XCircle, RefreshCw,
   ExternalLink, Edit, AlertCircle, Download, LogOut
@@ -11,13 +11,22 @@ import {
   getExplorerUrl,
   getContract,
   handleTransactionError,
-  calculateFees
+  calculateFees,
+  SUPPORTED_TOKENS
 } from '../utils/web3';
 import PayrollABI from '../contracts/DeCipherLabsPayroll.json';
 
 const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, onNavigate }) => {
   const [showUpdateWallet, setShowUpdateWallet] = useState(false);
   const [newWallet, setNewWallet] = useState('');
+
+  const getTokenSymbol = (tokenAddress) => {
+    if (!tokenAddress) return 'USDC';
+    const tokens = Object.values(SUPPORTED_TOKENS);
+    const token = tokens.find(t => t.address.toLowerCase() === (tokenAddress || '').toLowerCase());
+    return token ? token.symbol : 'USDC';
+  };
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState('');
@@ -35,7 +44,7 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
     try {
       setLoading(true);
       const contract = await getContract(payrollAddress, PayrollABI);
-      
+
       // Get employee details
       const empData = await contract.getEmployee(account);
       setEmployee(empData);
@@ -69,15 +78,15 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
     try {
       setLoading(true);
       setError('');
-      
+
       const contract = await getContract(payrollAddress, PayrollABI);
       const tx = await contract.updateMyWallet(newWallet);
       await tx.wait();
-      
+
       setSuccess('Wallet address updated successfully! Please reconnect with your new wallet.');
       setShowUpdateWallet(false);
       setNewWallet('');
-      
+
       // Disconnect after wallet update
       setTimeout(() => {
         onDisconnect();
@@ -94,11 +103,11 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
     try {
       setLoading(true);
       setError('');
-      
+
       const contract = await getContract(payrollAddress, PayrollABI);
       const tx = await contract.claim();
       await tx.wait();
-      
+
       setSuccess('Funds claimed successfully!');
       await loadEmployeeData();
     } catch (err) {
@@ -113,11 +122,11 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
     try {
       setLoading(true);
       setError('');
-      
+
       const contract = await getContract(payrollAddress, PayrollABI);
       const tx = await contract.releaseVested();
       await tx.wait();
-      
+
       setSuccess('Vested tokens released successfully!');
       await loadEmployeeData();
     } catch (err) {
@@ -130,7 +139,7 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
 
   if (!employee) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 flex items-center justify-center">
+      <div className="min-h-screen bg-slate-950 flex items-center justify-center">
         <div className="text-center">
           <RefreshCw className="w-16 h-16 text-blue-400 mx-auto mb-4 animate-spin" />
           <p className="text-white text-xl">Loading employee data...</p>
@@ -144,9 +153,9 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
   const owedAmount = formatTokenAmount(employee.owed, 18);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
+    <div className="min-h-screen bg-slate-900 text-white">
       {/* Header */}
-      <header className="border-b border-blue-500/20 bg-slate-950/50 backdrop-blur-lg sticky top-0 z-50">
+      <header className="border-b border-blue-500/20 bg-slate-900/50 backdrop-blur-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -156,7 +165,7 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <h1 className="text-2xl font-bold text-white">
                 My Payroll Portal
               </h1>
             </div>
@@ -211,11 +220,10 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
               <h2 className="text-2xl font-bold mb-2">Welcome Back!</h2>
               <p className="text-slate-400">View your payment information and manage your account</p>
             </div>
-            <div className={`px-4 py-2 rounded-lg font-semibold ${
-              employee.active 
-                ? 'bg-green-500/20 border border-green-500/50 text-green-400'
-                : 'bg-red-500/20 border border-red-500/50 text-red-400'
-            }`}>
+            <div className={`px-4 py-2 rounded-lg font-semibold ${employee.active
+              ? 'bg-green-500/20 border border-green-500/50 text-green-400'
+              : 'bg-red-500/20 border border-red-500/50 text-red-400'
+              }`}>
               {employee.active ? 'Active Employee' : 'Inactive'}
             </div>
           </div>
@@ -226,7 +234,7 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
                 <DollarSign className="w-5 h-5 text-blue-400" />
                 <span className="text-sm text-slate-400">Salary (Gross)</span>
               </div>
-              <p className="text-2xl font-bold">${salary} USDC</p>
+              <p className="text-2xl font-bold">${salary} {getTokenSymbol(employee.tokenAddress)}</p>
               <p className="text-xs text-slate-500 mt-1">Before deductions</p>
             </div>
 
@@ -244,7 +252,7 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
                 <Wallet className="w-5 h-5 text-purple-400" />
                 <span className="text-sm text-slate-400">Pending Claims</span>
               </div>
-              <p className="text-2xl font-bold">${owedAmount} USDC</p>
+              <p className="text-2xl font-bold">${owedAmount} {getTokenSymbol(employee.tokenAddress)}</p>
               <p className="text-xs text-slate-500 mt-1">Available to claim</p>
             </div>
           </div>
@@ -266,7 +274,7 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
               <span className="text-slate-400">Tax ({Number(employee.taxBps) / 100}%)</span>
               <span className="text-red-400">-${fees.tax} USDC</span>
             </div>
-            <div className="flex items-center justify-between p-4 bg-gradient-to-r from-green-600/20 to-emerald-600/20 border border-green-500/30 rounded-lg">
+            <div className="flex items-center justify-between p-4 bg-green-900/20 border border-green-500/30 rounded-lg">
               <span className="font-bold text-lg">Net Payment</span>
               <span className="text-2xl font-bold text-green-400">${fees.net} USDC</span>
             </div>
@@ -347,9 +355,8 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
                   <div key={idx} className="p-4 bg-slate-800/50 rounded-lg">
                     <div className="flex items-center justify-between mb-2">
                       <div className="flex items-center space-x-3">
-                        <div className={`w-2 h-2 rounded-full ${
-                          payment.isBonus ? 'bg-purple-400' : 'bg-green-400'
-                        }`}></div>
+                        <div className={`w-2 h-2 rounded-full ${payment.isBonus ? 'bg-purple-400' : 'bg-green-400'
+                          }`}></div>
                         <span className="font-semibold">{payment.isBonus ? 'Bonus' : 'Salary'}</span>
                       </div>
                       <span className="text-green-400 font-bold">
@@ -418,7 +425,7 @@ const EmployeePortal = ({ account, payrollAddress, employeeData, onDisconnect, o
                 <button
                   onClick={handleUpdateWallet}
                   disabled={loading || !newWallet}
-                  className="flex-1 px-4 py-3 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-500 hover:to-cyan-500 transition-all disabled:opacity-50 flex items-center justify-center space-x-2"
+                  className="flex-1 px-4 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg transition-all disabled:opacity-50 flex items-center justify-center space-x-2"
                 >
                   {loading ? (
                     <>

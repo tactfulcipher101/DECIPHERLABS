@@ -73,6 +73,12 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
     }
     return formatAddress(address);
   };
+  const getTokenSymbol = (tokenAddress) => {
+    if (!tokenAddress) return 'mUSDC';
+    const tokens = Object.values(SUPPORTED_TOKENS);
+    const token = tokens.find(t => t.address.toLowerCase() === tokenAddress.toLowerCase());
+    return token ? token.symbol : 'mUSDC';
+  };
 
   const handleConnect = async () => {
     try {
@@ -946,7 +952,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
     <div>
       {/* Employee Portal Banner */}
       {isEmployeeView && (
-        <div className="mb-6 p-4 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/50 rounded-xl">
+        <div className="mb-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Eye className="w-6 h-6 text-blue-400" />
@@ -1016,7 +1022,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
 
       {/* Funding section */}
       {currentStep === 'funding' && (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 p-6">
+        <div className="min-h-screen bg-slate-950 p-6">
           <div className="max-w-2xl mx-auto">
             <button onClick={() => setCurrentStep('dashboard')} className="mb-6 flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors">
               <ArrowLeft className="w-4 h-4" />
@@ -1065,7 +1071,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
 
       {/* Withdraw section */}
       {currentStep === 'withdraw' && companyContract && (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-orange-900 to-slate-900 p-6">
+        <div className="min-h-screen bg-slate-950 p-6">
           <div className="max-w-2xl mx-auto">
             <button onClick={() => setCurrentStep('dashboard')} className="mb-6 flex items-center space-x-2 text-orange-400 hover:text-orange-300 transition-colors">
               <ArrowLeft className="w-4 h-4" />
@@ -1272,9 +1278,8 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
                         </div>
                       </div>
                     </td>
-                    <td className={`px-4 py-3 font-semibold ${!emp.active ? 'text-slate-500 line-through' : 'text-green-400'
-                      }`}>
-                      {parseFloat(emp.salaryPerPeriod || 0).toFixed(2)}
+                    <td className={`px-4 py-3 font-semibold ${!emp.active ? 'text-slate-500 line-through' : 'text-green-400'}`}>
+                      {parseFloat(emp.salaryPerPeriod || 0).toFixed(2)} {getTokenSymbol(emp.tokenAddress)}
                     </td>
                     <td className={`px-4 py-3 ${!emp.active ? 'text-slate-600' : 'text-slate-300'}`}>
                       {['Weekly', 'Biweekly', 'Monthly', 'Hourly', 'Minutely', 'Custom'][emp.frequency] || 'Monthly'}
@@ -1294,7 +1299,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
                             <button
                               onClick={() => handleProcessPayment(emp.address)}
                               disabled={actionLoading === `pay-${emp.address}`}
-                              className="px-3 py-1.5 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded text-white text-xs font-medium disabled:opacity-50 flex items-center space-x-1 transition-all"
+                              className="px-3 py-1.5 bg-blue-600 hover:bg-blue-500 rounded text-white text-xs font-medium disabled:opacity-50 flex items-center space-x-1 transition-all"
                               title="Force Pay Now"
                             >
                               {actionLoading === `pay-${emp.address}` ? (
@@ -1727,7 +1732,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           <button
             onClick={handleProcessAllPayments}
             disabled={actionLoading === 'batch-pay' || employees.filter(e => e.active).length === 0}
-            className="px-8 py-4 bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-500 hover:to-emerald-500 rounded-xl text-white font-bold text-lg shadow-lg shadow-green-900/20 flex items-center space-x-3 disabled:opacity-50 disabled:grayscale transition-all transform hover:-translate-y-1"
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-xl text-white font-bold text-lg shadow-lg flex items-center space-x-3 disabled:opacity-50 disabled:grayscale transition-all transform hover:-translate-y-1"
           >
             {actionLoading === 'batch-pay' ? (
               <RefreshCw className="w-6 h-6 animate-spin" />
@@ -1760,14 +1765,15 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               >
                 <div className="flex items-center space-x-4">
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center text-white font-bold ${emp.active
-                    ? 'bg-gradient-to-br from-blue-500 to-purple-500'
+                    ? 'bg-blue-600'
                     : 'bg-slate-600'
                     }`}>
                     {idx + 1}
                   </div>
                   <div>
-                    <p className={`font-mono ${emp.active ? 'text-white' : 'text-slate-500'}`}>{emp.address?.slice(0, 8)}...{emp.address?.slice(-6)}</p>
-                    <p className={`text-sm ${emp.active ? 'text-slate-400' : 'text-slate-600'}`}>{emp.salaryPerPeriod} per {['week', '2 weeks', 'month', 'custom'][emp.frequency]}</p>
+                    {emp.name && <p className="text-white font-semibold">{emp.name}</p>}
+                    <p className={`font-mono text-xs ${emp.active ? 'text-slate-400' : 'text-slate-600'}`}>{emp.address?.slice(0, 8)}...{emp.address?.slice(-6)}</p>
+                    <p className={`text-sm ${emp.active ? 'text-slate-200' : 'text-slate-600'}`}>{emp.salaryPerPeriod} {getTokenSymbol(emp.tokenAddress)} per {['week', '2 weeks', 'month', 'custom'][emp.frequency]}</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -2088,9 +2094,9 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
   );
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950">
+    <div className="min-h-screen bg-slate-900">
       {/* Header */}
-      <header className="border-b border-blue-500/20 bg-slate-950/50 backdrop-blur-lg">
+      <header className="border-b border-blue-500/20 bg-slate-900/50 backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <button
@@ -2098,7 +2104,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               className="flex items-center space-x-2 text-slate-300 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-5 h-5" />
-              <span className="text-lg font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-lg font-bold text-white">
                 DeCipherLabs
               </span>
               {companyDetails.name && (
@@ -2111,7 +2117,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => onNavigate && onNavigate('faucet')}
-                className="px-3 py-2 bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 rounded-lg text-indigo-400 hover:text-indigo-300 transition-colors flex items-center space-x-2 text-sm"
+                className="px-3 py-2 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 rounded-lg text-blue-400 hover:text-blue-300 transition-colors flex items-center space-x-2 text-sm font-medium shadow-sm"
               >
                 <Droplet className="w-4 h-4" />
                 <span>Get Tokens</span>

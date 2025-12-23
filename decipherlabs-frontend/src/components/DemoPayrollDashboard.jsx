@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { 
+import {
   Wallet, Plus, Users, DollarSign, Calendar, Settings,
   ArrowLeft, CheckCircle, XCircle, Clock, TrendingUp,
   Gift, Send, RefreshCw, AlertCircle, LogOut, Building2,
@@ -33,9 +33,9 @@ const DemoPayrollDashboard = ({ account, onConnect, onDisconnect, onDeploy, onNa
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
+    <div className="min-h-screen bg-slate-900 text-white">
       {/* Header */}
-      <header className="border-b border-blue-500/20 bg-slate-950/50 backdrop-blur-lg sticky top-0 z-50">
+      <header className="border-b border-blue-500/20 bg-slate-900/50 backdrop-blur-lg sticky top-0 z-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
@@ -46,7 +46,7 @@ const DemoPayrollDashboard = ({ account, onConnect, onDisconnect, onDeploy, onNa
                 <ArrowLeft className="w-5 h-5" />
               </button>
               <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+                <h1 className="text-2xl font-bold text-white">
                   DeCipherLabs Payroll
                 </h1>
                 <p className="text-xs text-slate-500">Demo Dashboard</p>
@@ -68,7 +68,7 @@ const DemoPayrollDashboard = ({ account, onConnect, onDisconnect, onDeploy, onNa
 
       {/* Main Content */}
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -123,7 +123,7 @@ const DemoPayrollDashboard = ({ account, onConnect, onDisconnect, onDeploy, onNa
             <button
               onClick={handleDeploy}
               disabled={loading || !companyName}
-              className="w-full px-6 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-500 hover:to-cyan-500 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 text-lg font-semibold"
+              className="w-full px-6 py-4 bg-blue-600 hover:bg-blue-500 rounded-lg transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2 text-lg font-semibold"
             >
               {loading ? (
                 <>

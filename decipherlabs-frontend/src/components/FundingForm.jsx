@@ -203,7 +203,7 @@ const FundingForm = ({ companyContract, onSuccess, onError, setActionLoading, ac
             <button
                 type="submit"
                 disabled={actionLoading === 'funding' || !amount || parseFloat(amount) <= 0}
-                className="w-full px-6 py-3 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 rounded-lg text-white font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             >
                 {actionLoading === 'funding' ? (
                     <>

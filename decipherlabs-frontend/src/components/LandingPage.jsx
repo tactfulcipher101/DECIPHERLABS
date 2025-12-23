@@ -58,21 +58,21 @@ const DeCipherLabsLanding = (props) => {
       description: 'Automated on-chain payroll system for Web3 organizations. Seamless salary disbursement with full transparency.',
       status: 'Live',
       icon: Users,
-      gradient: 'from-blue-500 to-cyan-500'
+      gradient: 'bg-blue-600'
     },
     {
       name: 'Treasury Automation',
       description: 'Smart contract-based treasury and accounting management for efficient fund tracking.',
       status: 'Coming Soon',
       icon: Zap,
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'bg-slate-700'
     },
     {
       name: 'Security Auditing Suite',
       description: 'Blockchain security and code auditing infrastructure to ensure protocol safety.',
       status: 'Coming Soon',
       icon: Shield,
-      gradient: 'from-indigo-500 to-blue-500'
+      gradient: 'bg-indigo-600'
     }
   ];
 
@@ -100,22 +100,22 @@ const DeCipherLabsLanding = (props) => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 text-white">
+    <div className="min-h-screen bg-slate-900 text-white">
       {/* Animated Background */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-blue-400/5 rounded-full blur-3xl"></div>
       </div>
 
       {/* Navigation */}
-      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-950/80 backdrop-blur-lg border-b border-blue-500/20' : ''}`}>
+      <nav className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/95 backdrop-blur-lg border-b border-slate-800' : ''}`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                 <Rocket className="w-5 h-5" />
               </div>
-              <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <span className="text-xl font-bold text-white">
                 DeCipherLabs
               </span>
             </div>
@@ -126,7 +126,7 @@ const DeCipherLabsLanding = (props) => {
               <a href="#features" onClick={(e) => { e.preventDefault(); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-blue-400 transition-colors">Features</a>
               <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-blue-400 transition-colors">About</a>
               <button onClick={() => onNavigate('docs')} className="hover:text-blue-400 transition-colors">Documentation</button>
-              <button onClick={() => onNavigate('faucet')} className="px-4 py-2 bg-green-600/20 border border-green-500/50 rounded-lg hover:bg-green-600/30 transition-colors text-green-400 font-semibold">
+              <button onClick={() => onNavigate('faucet')} className="px-4 py-2 bg-emerald-600/20 border border-emerald-600/50 rounded-lg hover:bg-emerald-600/30 transition-colors text-emerald-400 font-medium">
                 Get Test Tokens
               </button>
 
@@ -138,7 +138,7 @@ const DeCipherLabsLanding = (props) => {
                   </div>
                   <button
                     onClick={handleLaunchPayroll}
-                    className="px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-500 hover:to-cyan-500 transition-all transform hover:scale-105 flex items-center space-x-2"
+                    className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-all flex items-center space-x-2"
                   >
                     <span>Launch App</span>
                     <ChevronRight className="w-4 h-4" />
@@ -158,7 +158,7 @@ const DeCipherLabsLanding = (props) => {
                       alert('Please install MetaMask!');
                     }
                   }}
-                  className="px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-500 hover:to-cyan-500 transition-all transform hover:scale-105 flex items-center space-x-2"
+                  className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-all flex items-center space-x-2"
                 >
                   <span>Connect Wallet</span>
                 </button>
@@ -174,12 +174,12 @@ const DeCipherLabsLanding = (props) => {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-slate-950/95 backdrop-blur-lg border-t border-blue-500/20">
+          <div className="md:hidden bg-slate-900/95 backdrop-blur-lg border-t border-slate-800">
             <div className="px-4 py-4 space-y-4">
               <a href="#ecosystem" onClick={(e) => { e.preventDefault(); document.getElementById('ecosystem')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); }} className="block hover:text-blue-400 transition-colors">Ecosystem</a>
               <a href="#features" onClick={(e) => { e.preventDefault(); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); }} className="block hover:text-blue-400 transition-colors">Features</a>
               <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); }} className="block hover:text-blue-400 transition-colors">About</a>
-              <button onClick={handleLaunchPayroll} className="w-full px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center space-x-2">
+              <button onClick={handleLaunchPayroll} className="w-full px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors flex items-center justify-center space-x-2">
                 <span>Launch App</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -191,10 +191,10 @@ const DeCipherLabsLanding = (props) => {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto text-center">
-          <div className="inline-block mb-4 px-4 py-2 bg-blue-500/10 border border-blue-500/30 rounded-full text-sm text-blue-400">
-            Building the next layer of web3 infrastructure
+          <div className="inline-block mb-4 px-4 py-2 bg-slate-800 border border-slate-700 rounded-full text-sm text-slate-300">
+            Payroll infrastructure for Web3 teams
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-cyan-400 to-blue-500 bg-clip-text text-transparent leading-tight">
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
             Web3 Financial
             <br />
             Infrastructure
@@ -205,7 +205,7 @@ const DeCipherLabsLanding = (props) => {
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={handleLaunchPayroll}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-500 hover:to-cyan-500 transition-all transform hover:scale-105 flex items-center space-x-2 text-lg font-semibold"
+              className="px-8 py-4 bg-blue-600 rounded-lg hover:bg-blue-500 transition-all flex items-center space-x-2 text-lg font-semibold"
             >
               <span>Launch Payroll</span>
               <ChevronRight className="w-5 h-5" />
@@ -213,7 +213,7 @@ const DeCipherLabsLanding = (props) => {
             <a
               href="#ecosystem"
               onClick={(e) => { e.preventDefault(); document.getElementById('ecosystem')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="px-8 py-4 border-2 border-blue-500/50 rounded-lg hover:bg-blue-500/10 transition-all flex items-center space-x-2 text-lg"
+              className="px-8 py-4 border-2 border-slate-700 rounded-lg hover:bg-slate-800 transition-all flex items-center space-x-2 text-lg"
             >
               <span>Explore Ecosystem</span>
             </a>
@@ -221,16 +221,16 @@ const DeCipherLabsLanding = (props) => {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto">
-            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl">
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">100%</div>
+            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl">
+              <div className="text-4xl font-bold text-white mb-2">100%</div>
               <div className="text-slate-400">On-Chain Transparency</div>
             </div>
-            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl">
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">0</div>
+            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl">
+              <div className="text-4xl font-bold text-white mb-2">0</div>
               <div className="text-slate-400">Middlemen Required</div>
             </div>
-            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl">
-              <div className="text-4xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-2">24/7</div>
+            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl">
+              <div className="text-4xl font-bold text-white mb-2">24/7</div>
               <div className="text-slate-400">Automated Execution</div>
             </div>
           </div>
@@ -241,7 +241,7 @@ const DeCipherLabsLanding = (props) => {
       <section id="ecosystem" className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               DeCipherLabs Ecosystem
             </h2>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
@@ -253,12 +253,12 @@ const DeCipherLabsLanding = (props) => {
             {protocols.map((protocol, index) => (
               <div
                 key={index}
-                className="group relative p-8 bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl hover:border-blue-500/50 transition-all duration-300 hover:transform hover:scale-105"
+                className="group relative p-8 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-2xl hover:border-slate-700 transition-all duration-300"
               >
-                <div className={`absolute inset-0 bg-gradient-to-br ${protocol.gradient} opacity-0 group-hover:opacity-10 rounded-2xl transition-opacity`}></div>
+                <div className={`absolute inset-0 ${protocol.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity`}></div>
 
                 <div className="relative">
-                  <div className={`w-16 h-16 bg-gradient-to-br ${protocol.gradient} rounded-xl flex items-center justify-center mb-6`}>
+                  <div className={`w-16 h-16 ${protocol.gradient} rounded-xl flex items-center justify-center mb-6`}>
                     <protocol.icon className="w-8 h-8" />
                   </div>
 
@@ -277,7 +277,7 @@ const DeCipherLabsLanding = (props) => {
                   {protocol.status === 'Live' ? (
                     <button
                       onClick={handleLaunchPayroll}
-                      className="inline-flex items-center space-x-2 text-blue-400 hover:text-cyan-400 transition-colors group-hover:translate-x-2 transform duration-300"
+                      className="inline-flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors"
                     >
                       <span>Launch App</span>
                       <ChevronRight className="w-4 h-4" />
@@ -298,7 +298,7 @@ const DeCipherLabsLanding = (props) => {
       <section id="features" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-slate-950/50">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               Why DeCipherLabs?
             </h2>
             <p className="text-xl text-slate-300 max-w-2xl mx-auto">
@@ -310,9 +310,9 @@ const DeCipherLabsLanding = (props) => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-slate-900/30 backdrop-blur-sm border border-blue-500/20 rounded-xl hover:border-blue-500/50 transition-all"
+                className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl hover:border-slate-700 transition-all"
               >
-                <div className="w-12 h-12 bg-gradient-to-br from-blue-600 to-cyan-600 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
@@ -327,7 +327,7 @@ const DeCipherLabsLanding = (props) => {
       <section id="about" className="relative py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
               About DeCipherLabs
             </h2>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto">
@@ -338,9 +338,9 @@ const DeCipherLabsLanding = (props) => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Main Description Card */}
             <div className="lg:col-span-2 group">
-              <div className="h-full bg-slate-900/60 backdrop-blur-md border border-blue-500/20 rounded-3xl p-8 hover:border-blue-400/40 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-blue-500/10">
+              <div className="h-full bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-3xl p-8 hover:border-slate-700 transition-all duration-300">
                 <div className="flex items-start space-x-4 mb-6">
-                  <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
                     <Shield className="w-6 h-6" />
                   </div>
                   <div>
@@ -389,7 +389,7 @@ const DeCipherLabsLanding = (props) => {
 
             {/* Floating Cards - Current Features */}
             <div className="space-y-6">
-              <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-blue-500/30 rounded-2xl p-6 hover:border-blue-400/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-blue-500/10">
+              <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300">
                 <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
                   <Users className="w-5 h-5 text-blue-400" />
                 </div>
@@ -397,17 +397,17 @@ const DeCipherLabsLanding = (props) => {
                 <p className="text-slate-400 text-sm">Support for ETH and major stablecoins (USDC, USDT, DAI)</p>
               </div>
 
-              <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-purple-500/30 rounded-2xl p-6 hover:border-purple-400/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-purple-500/10">
-                <div className="w-10 h-10 bg-purple-500/20 rounded-lg flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
-                  <Zap className="w-5 h-5 text-purple-400" />
+              <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300">
+                <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
+                  <Zap className="w-5 h-5 text-slate-300" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Payment Schedules</h3>
                 <p className="text-slate-400 text-sm">Weekly, bi-weekly, or monthly payment cycles</p>
               </div>
 
-              <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-green-500/30 rounded-2xl p-6 hover:border-green-400/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl hover:shadow-green-500/10">
-                <div className="w-10 h-10 bg-green-500/20 rounded-lg flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
-                  <Shield className="w-5 h-5 text-green-400" />
+              <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300">
+                <div className="w-10 h-10 bg-emerald-600/20 rounded-lg flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
+                  <Shield className="w-5 h-5 text-emerald-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Tax Management</h3>
                 <p className="text-slate-400 text-sm">Automated tax withholding and reporting</p>
@@ -423,7 +423,7 @@ const DeCipherLabsLanding = (props) => {
         <section id="roadmap" className="relative py-20 px-4 sm:px-6 lg:px-8 bg-slate-950/50">
           <div className="max-w-7xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4 text-white">
                 DeCipherLabs Roadmap
               </h2>
               <p className="text-xl text-slate-300 max-w-2xl mx-auto">
@@ -432,9 +432,9 @@ const DeCipherLabsLanding = (props) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-green-500/50 rounded-xl">
+              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-emerald-600/50 rounded-xl">
                 <div className="mb-4">
-                  <span className="text-green-400 font-semibold">Phase 1</span>
+                  <span className="text-emerald-400 font-semibold">Phase 1</span>
                   <h3 className="text-xl font-bold mt-2">Core Infrastructure</h3>
                 </div>
                 <ul className="space-y-2 text-slate-300">
@@ -446,7 +446,7 @@ const DeCipherLabsLanding = (props) => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-blue-500/20 rounded-xl">
+              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl">
                 <div className="mb-4">
                   <span className="text-blue-400 font-semibold">Phase 2</span>
                   <h3 className="text-xl font-bold mt-2">Advanced Payments</h3>
@@ -460,7 +460,7 @@ const DeCipherLabsLanding = (props) => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-blue-500/20 rounded-xl">
+              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl">
                 <div className="mb-4">
                   <span className="text-blue-400 font-semibold">Phase 3</span>
                   <h3 className="text-xl font-bold mt-2">Financial Integration</h3>
@@ -474,7 +474,7 @@ const DeCipherLabsLanding = (props) => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-blue-500/20 rounded-xl">
+              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl">
                 <div className="mb-4">
                   <span className="text-blue-400 font-semibold">Phase 4</span>
                   <h3 className="text-xl font-bold mt-2">Full Financial Suite</h3>
@@ -492,7 +492,7 @@ const DeCipherLabsLanding = (props) => {
         </section>
 
         <div className="max-w-4xl mx-auto text-center">
-          <div className="p-12 bg-gradient-to-br from-blue-900/30 to-cyan-900/30 backdrop-blur-sm border border-blue-500/30 rounded-3xl">
+          <div className="p-12 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-3xl">
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               Ready to Transform Your Payroll?
             </h2>
@@ -502,11 +502,11 @@ const DeCipherLabsLanding = (props) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={handleLaunchPayroll}
-                className="px-8 py-4 bg-gradient-to-r from-blue-600 to-cyan-600 rounded-lg hover:from-blue-500 hover:to-cyan-500 transition-all transform hover:scale-105 text-lg font-semibold"
+                className="px-8 py-4 bg-blue-600 rounded-lg hover:bg-blue-500 transition-all text-lg font-semibold"
               >
                 Get Started
               </button>
-              <a href="https://github.com/decipherlabs" className="px-8 py-4 border-2 border-blue-500/50 rounded-lg hover:bg-blue-500/10 transition-all flex items-center justify-center space-x-2 text-lg">
+              <a href="https://github.com/decipherlabs" className="px-8 py-4 border-2 border-slate-700 rounded-lg hover:bg-slate-800 transition-all flex items-center justify-center space-x-2 text-lg">
                 <Github className="w-5 h-5" />
                 <span>View Docs</span>
               </a>
@@ -516,12 +516,12 @@ const DeCipherLabsLanding = (props) => {
       </section>
 
       {/* Footer */}
-      <footer className="relative border-t border-blue-500/20 py-12 px-4 sm:px-6 lg:px-8">
+      <footer className="relative border-t border-slate-800 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
                   <Rocket className="w-5 h-5" />
                 </div>
                 <span className="text-xl font-bold">DeCipherLabs</span>
@@ -561,7 +561,7 @@ const DeCipherLabsLanding = (props) => {
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-blue-500/20 text-center text-slate-400">
+          <div className="mt-12 pt-8 border-t border-slate-800 text-center text-slate-400">
             <p>&copy; 2025 DeCipherLabs. Built on Base Network.</p>
           </div>
         </div>

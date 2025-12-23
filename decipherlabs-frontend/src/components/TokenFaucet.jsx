@@ -58,7 +58,7 @@ const TokenFaucet = ({ account }) => {
 
     if (!account) {
         return (
-            <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 flex items-center justify-center p-4">
+            <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
                 <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 rounded-2xl p-8 max-w-md w-full text-center">
                     <Droplet className="w-16 h-16 text-blue-400 mx-auto mb-4" />
                     <h2 className="text-2xl font-bold text-white mb-2">Token Faucet</h2>
@@ -69,7 +69,7 @@ const TokenFaucet = ({ account }) => {
     }
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 p-4">
+        <div className="min-h-screen bg-slate-950 p-4">
             <div className="max-w-2xl mx-auto pt-8">
                 {/* Header */}
                 <div className="text-center mb-8">
@@ -155,8 +155,8 @@ const TokenFaucet = ({ account }) => {
                         onClick={handleClaim}
                         disabled={!canClaim || loading}
                         className={`w-full py-4 rounded-lg font-semibold text-lg transition-all ${canClaim && !loading
-                            ? 'bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-lg hover:shadow-xl'
-                            : 'bg-gray-700 text-gray-500 cursor-not-allowed'
+                            ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg hover:shadow-xl'
+                            : 'bg-slate-800 text-slate-500 cursor-not-allowed'
                             }`}
                     >
                         {loading ? (

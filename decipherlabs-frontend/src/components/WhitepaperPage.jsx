@@ -3,7 +3,7 @@ import { ArrowLeft, BookOpen, Shield, Zap, Users, DollarSign } from 'lucide-reac
 
 const WhitepaperPage = ({ onNavigate }) => {
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900">
+        <div className="min-h-screen bg-slate-900">
             <div className="max-w-5xl mx-auto px-4 py-8">
                 {/* Header */}
                 <button
@@ -16,7 +16,7 @@ const WhitepaperPage = ({ onNavigate }) => {
 
                 {/* Title */}
                 <div className="mb-12">
-                    <h1 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+                    <h1 className="text-5xl font-bold text-white mb-4">
                         DeCipherLabs Payroll
                     </h1>
                     <p className="text-2xl text-slate-300">Technical Whitepaper v1.0</p>
@@ -213,8 +213,8 @@ const WhitepaperPage = ({ onNavigate }) => {
                                     <li>• Enhanced Volatility Hedging</li>
                                 </ul>
                             </div>
-                            <div className="border-l-4 border-purple-500 pl-6">
-                                <h3 className="text-xl font-semibold text-purple-400 mb-2">Phase 3: Financial Integration</h3>
+                            <div className="border-l-4 border-slate-600 pl-6">
+                                <h3 className="text-xl font-semibold text-slate-300 mb-2">Phase 3: Financial Integration</h3>
                                 <ul className="text-slate-300 space-y-1">
                                     <li>• DeFi Yield Generation</li>
                                     <li>• Cross-chain Operations</li>
@@ -237,7 +237,7 @@ const WhitepaperPage = ({ onNavigate }) => {
                     </section>
 
                     {/* Contact */}
-                    <section className="bg-gradient-to-r from-blue-900/30 to-cyan-900/30 border border-blue-500/30 rounded-xl p-8 text-center">
+                    <section className="bg-slate-800/50 border border-slate-700 rounded-xl p-8 text-center">
                         <h2 className="text-2xl font-bold text-white mb-4">Get Involved</h2>
                         <p className="text-slate-300 mb-6">
                             Join us in revolutionizing Web3 payroll infrastructure

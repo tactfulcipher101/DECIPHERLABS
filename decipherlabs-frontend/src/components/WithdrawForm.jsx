@@ -126,7 +126,7 @@ const WithdrawForm = ({ companyContract, onSuccess, onError, setActionLoading, a
             <button
                 type="submit"
                 disabled={actionLoading === 'withdrawing' || !amount || parseFloat(amount) <= 0}
-                className="w-full px-6 py-3 bg-gradient-to-r from-orange-600 to-orange-500 hover:from-orange-500 hover:to-orange-400 rounded-lg text-white font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full px-6 py-3 bg-orange-600 hover:bg-orange-500 rounded-lg text-white font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             >
                 {actionLoading === 'withdrawing' ? (
                     <>

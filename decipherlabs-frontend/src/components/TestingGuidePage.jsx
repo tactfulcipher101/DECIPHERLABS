@@ -24,19 +24,19 @@ const TestingGuidePage = ({ onNavigate }) => {
     const categories = [...new Set(testCases.map(tc => tc.category))];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-green-900 to-slate-900">
+        <div className="min-h-screen bg-slate-900">
             <div className="max-w-5xl mx-auto px-4 py-8">
                 {/* Header */}
                 <button
                     onClick={() => onNavigate('docs')}
-                    className="flex items-center space-x-2 text-green-400 hover:text-green-300 transition-colors mb-8"
+                    className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors mb-8"
                 >
                     <ArrowLeft className="w-4 h-4" />
                     <span>Back to Documentation</span>
                 </button>
 
                 <div className="mb-12">
-                    <h1 className="text-5xl font-bold bg-gradient-to-r from-green-400 to-emerald-400 bg-clip-text text-transparent mb-4">
+                    <h1 className="text-5xl font-bold text-white mb-4">
                         Testing Guide
                     </h1>
                     <p className="text-xl text-slate-300">
@@ -71,7 +71,7 @@ const TestingGuidePage = ({ onNavigate }) => {
                                     href="https://bwarelabs.com/faucets/base-sepolia"
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="inline-flex items-center justify-center space-x-2 px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg text-white text-sm transition-colors"
+                                    className="inline-flex items-center justify-center space-x-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-white text-sm transition-colors"
                                 >
                                     <span>Bware Labs Faucet</span>
                                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ const TestingGuidePage = ({ onNavigate }) => {
                                 </a>
                             </div>
                         </div>
-                        <div className="bg-purple-900/20 border border-purple-500/30 rounded-lg p-6">
+                        <div className="bg-slate-800/30 border border-slate-700 rounded-lg p-6">
                             <h3 className="text-xl font-semibold text-white mb-3">2. Test Tokens</h3>
                             <p className="text-slate-300 mb-2">
                                 Claim test tokens (mUSDC and mETH) using the built-in faucet feature.
@@ -98,16 +98,16 @@ const TestingGuidePage = ({ onNavigate }) => {
                     <div className="space-y-6">
                         {categories.map(category => (
                             <div key={category}>
-                                <h3 className="text-xl font-semibold text-green-400 mb-3">{category}</h3>
+                                <h3 className="text-xl font-semibold text-blue-400 mb-3">{category}</h3>
                                 <div className="space-y-2">
                                     {testCases
                                         .filter(tc => tc.category === category)
                                         .map(tc => (
                                             <div
                                                 key={tc.id}
-                                                className="flex items-center space-x-3 p-3 bg-slate-900/50 border border-slate-700 rounded-lg hover:border-green-500/50 transition-colors"
+                                                className="flex items-center space-x-3 p-3 bg-slate-900/50 border border-slate-700 rounded-lg hover:border-slate-600 transition-colors"
                                             >
-                                                <CheckSquare className="w-5 h-5 text-green-400 flex-shrink-0" />
+                                                <CheckSquare className="w-5 h-5 text-slate-400 flex-shrink-0" />
                                                 <span className="text-slate-300">{tc.title}</span>
                                             </div>
                                         ))}
@@ -118,9 +118,9 @@ const TestingGuidePage = ({ onNavigate }) => {
                 </div>
 
                 {/* Critical Test: Hedge Vault */}
-                <div className="bg-gradient-to-r from-green-900/30 to-emerald-900/30 border border-green-500/30 rounded-2xl p-8 mb-12">
+                <div className="bg-slate-800/50 border border-slate-700 rounded-2xl p-8 mb-12">
                     <div className="flex items-start space-x-4 mb-6">
-                        <Zap className="w-8 h-8 text-green-400 flex-shrink-0" />
+                        <Zap className="w-8 h-8 text-blue-400 flex-shrink-0" />
                         <div>
                             <h2 className="text-2xl font-bold text-white mb-2">Critical Test: Hedge Vault Swap</h2>
                             <p className="text-slate-300">

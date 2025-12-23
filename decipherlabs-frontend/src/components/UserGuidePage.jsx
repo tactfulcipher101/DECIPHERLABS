@@ -13,7 +13,7 @@ const UserGuidePage = ({ onNavigate }) => {
             icon: Building,
             title: 'Deploy Contract',
             description: 'Enter your company name and deploy your payroll contract (~$0.01 gas)',
-            color: 'from-purple-500 to-pink-500'
+            color: 'from-slate-600 to-slate-500'
         },
         {
             icon: Users,
@@ -25,36 +25,36 @@ const UserGuidePage = ({ onNavigate }) => {
             icon: DollarSign,
             title: 'Fund Contract',
             description: 'Fund with mUSDC or mETH. Remember to include 1% service fee',
-            color: 'from-yellow-500 to-orange-500'
+            color: 'from-slate-600 to-slate-500'
         },
         {
             icon: Shield,
             title: 'Configure Hedge Vault',
             description: 'Optional: Protect employees from volatility with risk levels',
-            color: 'from-red-500 to-pink-500'
+            color: 'from-slate-600 to-slate-500'
         },
         {
             icon: TrendingUp,
             title: 'Process Payments',
             description: 'Click "Pay Now" to process payments with automatic hedge vault splitting',
-            color: 'from-indigo-500 to-purple-500'
+            color: 'from-slate-600 to-slate-500'
         }
     ];
 
     return (
-        <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+        <div className="min-h-screen bg-slate-900">
             <div className="max-w-5xl mx-auto px-4 py-8">
                 {/* Header */}
                 <button
                     onClick={() => onNavigate('docs')}
-                    className="flex items-center space-x-2 text-purple-400 hover:text-purple-300 transition-colors mb-8"
+                    className="flex items-center space-x-2 text-blue-400 hover:text-blue-300 transition-colors mb-8"
                 >
                     <ArrowLeft className="w-4 h-4" />
                     <span>Back to Documentation</span>
                 </button>
 
                 <div className="mb-12">
-                    <h1 className="text-5xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent mb-4">
+                    <h1 className="text-5xl font-bold text-white mb-4">
                         User Guide
                     </h1>
                     <p className="text-xl text-slate-300">
