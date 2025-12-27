@@ -135,7 +135,7 @@ const FundingForm = ({ companyContract, onSuccess, onError, setActionLoading, ac
                 <select
                     value={tokenAddress}
                     onChange={(e) => setTokenAddress(e.target.value)}
-                    className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none cursor-pointer appearance-none"
+                    className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none cursor-pointer appearance-none"
                 >
                     <option value={USDC_ADDRESS} className="bg-slate-800 text-white">mUSDC (Mock Stablecoin)</option>
                     <option value={SUPPORTED_TOKENS['mETH'].address} className="bg-slate-800 text-white">mETH (Mock Volatile Token)</option>

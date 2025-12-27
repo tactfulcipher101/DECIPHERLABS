@@ -55,7 +55,7 @@ const DeCipherLabsLanding = (props) => {
   const protocols = [
     {
       name: 'DeCipherLabs Payroll',
-      description: 'Automated on-chain payroll system for Web3 organizations. Seamless salary disbursement with full transparency.',
+      description: 'Intelligent on-chain payroll with integrated volatility hedging. Protect your team\'s purchasing power with automatic risk management for standard liquid assets.',
       status: 'Live',
       icon: Users,
       gradient: 'bg-blue-600'
@@ -79,23 +79,23 @@ const DeCipherLabsLanding = (props) => {
   const features = [
     {
       icon: Zap,
-      title: 'Automated Payments',
-      description: 'Set it and forget it. Salary payments execute automatically on schedule.'
+      title: 'Volatility Hedge',
+      description: 'Integrated Hedge Vaults protect employee salaries from market crashes by automatically rebalancing into stable assets.'
     },
     {
       icon: Shield,
-      title: 'Secure & Auditable',
-      description: 'All transactions are on-chain, transparent, and verifiable.'
+      title: 'Purchase Protection',
+      description: 'Ensure your workers receive the full value of their work, regardless of cryptomarket volatility.'
     },
     {
       icon: Users,
-      title: 'Multi-Token Support',
-      description: 'Pay in stablecoins or any ERC-20 token of your choice.'
+      title: 'Smart Disbursements',
+      description: 'Pay in standard liquid ERC-20 tokens with automatic routing to minimize risk and avoid devaluation.'
     },
     {
       icon: Rocket,
-      title: 'Zero Middlemen',
-      description: 'Direct peer-to-peer payments with minimal platform fees.'
+      title: 'Wealth Infrastructure',
+      description: 'Direct peer-to-peer infrastructure that bypasses legacy banking and protects organizational wealth.'
     }
   ];
 
@@ -112,7 +112,7 @@ const DeCipherLabsLanding = (props) => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center space-x-2">
-              <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+              <div className="w-8 h-8 bg-blue-600 rounded-2xl flex items-center justify-center">
                 <Rocket className="w-5 h-5" />
               </div>
               <span className="text-xl font-bold text-white">
@@ -126,19 +126,19 @@ const DeCipherLabsLanding = (props) => {
               <a href="#features" onClick={(e) => { e.preventDefault(); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-blue-400 transition-colors">Features</a>
               <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); }} className="hover:text-blue-400 transition-colors">About</a>
               <button onClick={() => onNavigate('docs')} className="hover:text-blue-400 transition-colors">Documentation</button>
-              <button onClick={() => onNavigate('faucet')} className="px-4 py-2 bg-emerald-600/20 border border-emerald-600/50 rounded-lg hover:bg-emerald-600/30 transition-colors text-emerald-400 font-medium">
+              <button onClick={() => onNavigate('faucet')} className="px-4 py-2 bg-emerald-600/20 border border-emerald-600/50 rounded-2xl hover:bg-emerald-600/30 transition-colors text-emerald-400 font-medium">
                 Get Test Tokens
               </button>
 
               {account ? (
                 <div className="flex items-center space-x-4">
-                  <div className="px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
+                  <div className="px-3 py-1.5 bg-slate-800/50 rounded-2xl border border-slate-700">
                     <span className="text-xs text-slate-400">Connected: </span>
                     <span className="text-sm text-white font-mono">{account.slice(0, 6)}...{account.slice(-4)}</span>
                   </div>
                   <button
                     onClick={handleLaunchPayroll}
-                    className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-all flex items-center space-x-2"
+                    className="px-6 py-2 bg-blue-600 rounded-2xl hover:bg-blue-500 transition-all flex items-center space-x-2"
                   >
                     <span>Launch App</span>
                     <ChevronRight className="w-4 h-4" />
@@ -158,7 +158,7 @@ const DeCipherLabsLanding = (props) => {
                       alert('Please install MetaMask!');
                     }
                   }}
-                  className="px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-all flex items-center space-x-2"
+                  className="px-6 py-2 bg-blue-600 rounded-2xl hover:bg-blue-500 transition-all flex items-center space-x-2"
                 >
                   <span>Connect Wallet</span>
                 </button>
@@ -179,7 +179,7 @@ const DeCipherLabsLanding = (props) => {
               <a href="#ecosystem" onClick={(e) => { e.preventDefault(); document.getElementById('ecosystem')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); }} className="block hover:text-blue-400 transition-colors">Ecosystem</a>
               <a href="#features" onClick={(e) => { e.preventDefault(); document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); }} className="block hover:text-blue-400 transition-colors">Features</a>
               <a href="#about" onClick={(e) => { e.preventDefault(); document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' }); setMobileMenuOpen(false); }} className="block hover:text-blue-400 transition-colors">About</a>
-              <button onClick={handleLaunchPayroll} className="w-full px-6 py-2 bg-blue-600 rounded-lg hover:bg-blue-500 transition-colors flex items-center justify-center space-x-2">
+              <button onClick={handleLaunchPayroll} className="w-full px-6 py-2 bg-blue-600 rounded-2xl hover:bg-blue-500 transition-colors flex items-center justify-center space-x-2">
                 <span>Launch App</span>
                 <ChevronRight className="w-4 h-4" />
               </button>
@@ -195,25 +195,25 @@ const DeCipherLabsLanding = (props) => {
             Payroll infrastructure for Web3 teams
           </div>
           <h1 className="text-5xl md:text-7xl font-bold mb-6 text-white leading-tight">
-            Web3 Financial
+            Protect Your
             <br />
-            Infrastructure
+            Team's Wealth
           </h1>
           <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-3xl mx-auto">
-            Secure, transparent, and automated financial tools for the decentralized economy. Starting with payroll, expanding to treasury and beyond.
+            The first payroll infrastructure designed to hedge against crypto volatility, ensuring your team's salary value is always protected and never devalued.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
             <button
               onClick={handleLaunchPayroll}
-              className="px-8 py-4 bg-blue-600 rounded-lg hover:bg-blue-500 transition-all flex items-center space-x-2 text-lg font-semibold"
+              className="px-8 py-4 bg-blue-600 rounded-full hover:bg-blue-500 transition-all flex items-center space-x-2 text-lg font-semibold shadow-lg shadow-blue-500/20"
             >
-              <span>Launch Payroll</span>
+              <span>Secure Your Payroll</span>
               <ChevronRight className="w-5 h-5" />
             </button>
             <a
               href="#ecosystem"
               onClick={(e) => { e.preventDefault(); document.getElementById('ecosystem')?.scrollIntoView({ behavior: 'smooth' }); }}
-              className="px-8 py-4 border-2 border-slate-700 rounded-lg hover:bg-slate-800 transition-all flex items-center space-x-2 text-lg"
+              className="px-8 py-4 border-2 border-slate-700 rounded-full hover:bg-slate-800 transition-all flex items-center space-x-2 text-lg"
             >
               <span>Explore Ecosystem</span>
             </a>
@@ -221,17 +221,17 @@ const DeCipherLabsLanding = (props) => {
 
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 max-w-4xl mx-auto">
-            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl">
+            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-3xl">
               <div className="text-4xl font-bold text-white mb-2">100%</div>
-              <div className="text-slate-400">On-Chain Transparency</div>
+              <div className="text-slate-400">Salary Value Hedge</div>
             </div>
-            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl">
-              <div className="text-4xl font-bold text-white mb-2">0</div>
-              <div className="text-slate-400">Middlemen Required</div>
+            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-3xl">
+              <div className="text-4xl font-bold text-white mb-2">Stable</div>
+              <div className="text-slate-400">Purchasing Power</div>
             </div>
-            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-xl">
-              <div className="text-4xl font-bold text-white mb-2">24/7</div>
-              <div className="text-slate-400">Automated Execution</div>
+            <div className="p-6 bg-slate-900/50 backdrop-blur-sm border border-slate-800 rounded-3xl">
+              <div className="text-4xl font-bold text-white mb-2">Real-Time</div>
+              <div className="text-slate-400">Volatility Monitoring</div>
             </div>
           </div>
         </div>
@@ -258,7 +258,7 @@ const DeCipherLabsLanding = (props) => {
                 <div className={`absolute inset-0 ${protocol.gradient} opacity-0 group-hover:opacity-5 rounded-2xl transition-opacity`}></div>
 
                 <div className="relative">
-                  <div className={`w-16 h-16 ${protocol.gradient} rounded-xl flex items-center justify-center mb-6`}>
+                  <div className={`w-16 h-16 ${protocol.gradient} rounded-3xl flex items-center justify-center mb-6`}>
                     <protocol.icon className="w-8 h-8" />
                   </div>
 
@@ -310,9 +310,9 @@ const DeCipherLabsLanding = (props) => {
             {features.map((feature, index) => (
               <div
                 key={index}
-                className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl hover:border-slate-700 transition-all"
+                className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-3xl hover:border-slate-700 transition-all"
               >
-                <div className="w-12 h-12 bg-blue-600 rounded-lg flex items-center justify-center mb-4">
+                <div className="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center mb-4">
                   <feature.icon className="w-6 h-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
@@ -340,7 +340,7 @@ const DeCipherLabsLanding = (props) => {
             <div className="lg:col-span-2 group">
               <div className="h-full bg-slate-900/60 backdrop-blur-md border border-slate-800 rounded-3xl p-8 hover:border-slate-700 transition-all duration-300">
                 <div className="flex items-start space-x-4 mb-6">
-                  <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                  <div className="w-12 h-12 bg-blue-600 rounded-3xl flex items-center justify-center flex-shrink-0">
                     <Shield className="w-6 h-6" />
                   </div>
                   <div>
@@ -357,11 +357,11 @@ const DeCipherLabsLanding = (props) => {
                 </p>
 
                 <div className="flex flex-wrap gap-4 pt-4">
-                  <div className="flex-1 min-w-[200px] bg-slate-800/30 p-4 rounded-xl border border-slate-700">
+                  <div className="flex-1 min-w-[200px] bg-slate-800/30 p-4 rounded-3xl border border-slate-700">
                     <h4 className="font-semibold text-blue-300 mb-2">Vision</h4>
                     <p className="text-slate-400 text-sm">Payroll automation today; more innovative on-chain financial products coming soon.</p>
                   </div>
-                  <div className="flex-1 min-w-[200px] bg-slate-800/30 p-4 rounded-xl border border-slate-700">
+                  <div className="flex-1 min-w-[200px] bg-slate-800/30 p-4 rounded-3xl border border-slate-700">
                     <h4 className="font-semibold text-blue-300 mb-2">Get Involved</h4>
                     <p className="text-slate-400 text-sm">Follow our updates on X and join early testing on testnets.</p>
                   </div>
@@ -373,7 +373,7 @@ const DeCipherLabsLanding = (props) => {
                     <div className="flex justify-center">
                       <button
                         onClick={() => onNavigate('treasury')}
-                        className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-lg text-white transition-all transform hover:scale-105 flex items-center space-x-2"
+                        className="px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-500 hover:to-blue-500 rounded-2xl text-white transition-all transform hover:scale-105 flex items-center space-x-2"
                       >
                         <Shield className="w-5 h-5" />
                         <span>Founder Dashboard</span>
@@ -390,7 +390,7 @@ const DeCipherLabsLanding = (props) => {
             {/* Floating Cards - Current Features */}
             <div className="space-y-6">
               <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300">
-                <div className="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
+                <div className="w-10 h-10 bg-blue-500/20 rounded-2xl flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
                   <Users className="w-5 h-5 text-blue-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Flexible Payments</h3>
@@ -398,7 +398,7 @@ const DeCipherLabsLanding = (props) => {
               </div>
 
               <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300">
-                <div className="w-10 h-10 bg-slate-700 rounded-lg flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
+                <div className="w-10 h-10 bg-slate-700 rounded-2xl flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
                   <Zap className="w-5 h-5 text-slate-300" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Payment Schedules</h3>
@@ -406,7 +406,7 @@ const DeCipherLabsLanding = (props) => {
               </div>
 
               <div className="group/card bg-slate-900/70 backdrop-blur-sm border border-slate-800 rounded-2xl p-6 hover:border-slate-700 transition-all duration-300">
-                <div className="w-10 h-10 bg-emerald-600/20 rounded-lg flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
+                <div className="w-10 h-10 bg-emerald-600/20 rounded-2xl flex items-center justify-center mb-4 group-hover/card:scale-110 transition-transform">
                   <Shield className="w-5 h-5 text-emerald-400" />
                 </div>
                 <h3 className="text-xl font-bold text-white mb-2">Tax Management</h3>
@@ -432,7 +432,7 @@ const DeCipherLabsLanding = (props) => {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-emerald-600/50 rounded-xl">
+              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-emerald-600/50 rounded-3xl">
                 <div className="mb-4">
                   <span className="text-emerald-400 font-semibold">Phase 1</span>
                   <h3 className="text-xl font-bold mt-2">Core Infrastructure</h3>
@@ -446,7 +446,7 @@ const DeCipherLabsLanding = (props) => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl">
+              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-3xl">
                 <div className="mb-4">
                   <span className="text-blue-400 font-semibold">Phase 2</span>
                   <h3 className="text-xl font-bold mt-2">Advanced Payments</h3>
@@ -460,7 +460,7 @@ const DeCipherLabsLanding = (props) => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl">
+              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-3xl">
                 <div className="mb-4">
                   <span className="text-blue-400 font-semibold">Phase 3</span>
                   <h3 className="text-xl font-bold mt-2">Financial Integration</h3>
@@ -474,7 +474,7 @@ const DeCipherLabsLanding = (props) => {
                 </ul>
               </div>
 
-              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-xl">
+              <div className="p-6 bg-slate-900/30 backdrop-blur-sm border border-slate-800 rounded-3xl">
                 <div className="mb-4">
                   <span className="text-blue-400 font-semibold">Phase 4</span>
                   <h3 className="text-xl font-bold mt-2">Full Financial Suite</h3>
@@ -502,11 +502,11 @@ const DeCipherLabsLanding = (props) => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button
                 onClick={handleLaunchPayroll}
-                className="px-8 py-4 bg-blue-600 rounded-lg hover:bg-blue-500 transition-all text-lg font-semibold"
+                className="px-8 py-4 bg-blue-600 rounded-2xl hover:bg-blue-500 transition-all text-lg font-semibold"
               >
                 Get Started
               </button>
-              <a href="https://github.com/decipherlabs" className="px-8 py-4 border-2 border-slate-700 rounded-lg hover:bg-slate-800 transition-all flex items-center justify-center space-x-2 text-lg">
+              <a href="https://github.com/decipherlabs" className="px-8 py-4 border-2 border-slate-700 rounded-2xl hover:bg-slate-800 transition-all flex items-center justify-center space-x-2 text-lg">
                 <Github className="w-5 h-5" />
                 <span>View Docs</span>
               </a>
@@ -521,7 +521,7 @@ const DeCipherLabsLanding = (props) => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center">
+                <div className="w-8 h-8 bg-blue-600 rounded-2xl flex items-center justify-center">
                   <Rocket className="w-5 h-5" />
                 </div>
                 <span className="text-xl font-bold">DeCipherLabs</span>
@@ -530,12 +530,12 @@ const DeCipherLabsLanding = (props) => {
                 Building secure, transparent, and automated financial infrastructure for the decentralized economy.
               </p>
               <div className="flex space-x-4">
-                <a href="https://x.com/DecipherLabs_HQ" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <a href="https://x.com/DecipherLabs_HQ" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-2xl flex items-center justify-center hover:bg-blue-600 transition-colors">
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                   </svg>
                 </a>
-                <a href="https://github.com/decipherlabs" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-lg flex items-center justify-center hover:bg-blue-600 transition-colors">
+                <a href="https://github.com/decipherlabs" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-slate-800 rounded-2xl flex items-center justify-center hover:bg-blue-600 transition-colors">
                   <Github className="w-5 h-5" />
                 </a>
               </div>

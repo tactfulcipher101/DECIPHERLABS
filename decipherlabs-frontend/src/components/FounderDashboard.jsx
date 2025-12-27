@@ -161,7 +161,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
           <p className="text-slate-400 mb-6">Only the factory owner can access the Founder Dashboard.</p>
           <button
             onClick={() => onNavigate && onNavigate('landing')}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-medium transition-colors"
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-2xl text-white font-medium transition-colors"
           >
             Return to Home
           </button>
@@ -193,7 +193,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Navigation Tabs */}
-        <div className="flex space-x-1 bg-slate-900/50 p-1 rounded-lg mb-8">
+        <div className="flex space-x-1 bg-slate-900/50 p-1 rounded-2xl mb-8">
           {[
             { id: 'dashboard', label: 'Dashboard', icon: Shield },
             { id: 'treasury', label: 'Treasury', icon: DollarSign },
@@ -220,7 +220,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
         {/* Dashboard Tab */}
         {activeTab === 'dashboard' && (
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-            <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
+            <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <DollarSign className="w-8 h-8 text-green-400" />
                 <div>
@@ -235,7 +235,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
               </div>
             </div>
 
-            <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
+            <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <Coins className="w-8 h-8 text-blue-400" />
                 <div>
@@ -249,7 +249,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
               </div>
             </div>
 
-            <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
+            <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6">
               <div className="flex items-center space-x-3 mb-4">
                 <Users className="w-8 h-8 text-purple-400" />
                 <div>
@@ -268,7 +268,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
         {/* Treasury Management Tab */}
         {activeTab === 'treasury' && (
           <div className="space-y-6">
-            <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
+            <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6">
               <h2 className="text-xl font-bold mb-4 flex items-center space-x-2">
                 <DollarSign className="w-6 h-6" />
                 <span>Treasury Configuration</span>
@@ -280,7 +280,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
                     <label className="block text-sm font-medium text-slate-400 mb-2">
                       Current Treasury Address
                     </label>
-                    <div className="p-3 bg-slate-800/50 border border-slate-700 rounded-lg font-mono text-sm">
+                    <div className="p-3 bg-slate-800/50 border border-slate-700 rounded-2xl font-mono text-sm">
                       {treasuryInfo.address}
                     </div>
                   </div>
@@ -289,7 +289,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
                     <label className="block text-sm font-medium text-slate-400 mb-2">
                       Current Fee Rate
                     </label>
-                    <div className="p-3 bg-slate-800/50 border border-slate-700 rounded-lg">
+                    <div className="p-3 bg-slate-800/50 border border-slate-700 rounded-2xl">
                       {treasuryInfo.feeBps / 100}% ({treasuryInfo.feeBps} bps)
                     </div>
                   </div>
@@ -305,12 +305,12 @@ const FounderDashboard = ({ account, onNavigate }) => {
                       value={newTreasury}
                       onChange={(e) => setNewTreasury(e.target.value)}
                       placeholder="0x..."
-                      className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-blue-500 transition-colors"
+                      className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white placeholder-slate-500 focus:border-blue-500 transition-colors"
                     />
                     <button
                       onClick={updateTreasury}
                       disabled={loading}
-                      className="mt-2 px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg text-white transition-colors disabled:opacity-50"
+                      className="mt-2 px-4 py-2 bg-green-600 hover:bg-green-500 rounded-2xl text-white transition-colors disabled:opacity-50"
                     >
                       Update Treasury
                     </button>
@@ -325,12 +325,12 @@ const FounderDashboard = ({ account, onNavigate }) => {
                       value={newFeeBps}
                       onChange={(e) => setNewFeeBps(e.target.value)}
                       placeholder="100 = 1%"
-                      className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white placeholder-slate-500 focus:border-blue-500 transition-colors"
+                      className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white placeholder-slate-500 focus:border-blue-500 transition-colors"
                     />
                     <button
                       onClick={updateFee}
                       disabled={loading}
-                      className="mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white transition-colors disabled:opacity-50"
+                      className="mt-2 px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-2xl text-white transition-colors disabled:opacity-50"
                     >
                       Update Fee Rate
                     </button>
@@ -343,7 +343,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
 
         {/* Payrolls Tab */}
         {activeTab === 'payrolls' && (
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
+          <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6">
             <h2 className="text-xl font-bold mb-4 flex items-center space-x-2">
               <Coins className="w-6 h-6" />
               <span>Deployed Payroll Contracts</span>
@@ -396,7 +396,7 @@ const FounderDashboard = ({ account, onNavigate }) => {
 
         {/* Companies Tab */}
         {activeTab === 'companies' && (
-          <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-xl p-6">
+          <div className="bg-slate-900/50 backdrop-blur-sm border border-blue-500/20 rounded-3xl p-6">
             <h2 className="text-xl font-bold mb-4 flex items-center space-x-2">
               <Users className="w-6 h-6" />
               <span>Managing Companies</span>
@@ -413,13 +413,13 @@ const FounderDashboard = ({ account, onNavigate }) => {
 
       {/* Notifications */}
       {error && (
-        <div className="fixed top-4 right-4 bg-red-500/10 border border-red-500/50 rounded-lg p-4 text-red-400 max-w-md">
+        <div className="fixed top-4 right-4 bg-red-500/10 border border-red-500/50 rounded-2xl p-4 text-red-400 max-w-md">
           {error}
         </div>
       )}
 
       {success && (
-        <div className="fixed top-4 right-4 bg-green-500/10 border border-green-500/50 rounded-lg p-4 text-green-400 max-w-md">
+        <div className="fixed top-4 right-4 bg-green-500/10 border border-green-500/50 rounded-2xl p-4 text-green-400 max-w-md">
           {success}
         </div>
       )}

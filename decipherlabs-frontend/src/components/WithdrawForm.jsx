@@ -77,7 +77,7 @@ const WithdrawForm = ({ companyContract, onSuccess, onError, setActionLoading, a
                 <select
                     value={tokenAddress}
                     onChange={(e) => setTokenAddress(e.target.value)}
-                    className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none cursor-pointer appearance-none"
+                    className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none cursor-pointer appearance-none"
                 >
                     <option value={SUPPORTED_TOKENS.mUSDC.address} className="bg-slate-800 text-white">mUSDC (Mock Stablecoin)</option>
                     <option value={SUPPORTED_TOKENS.mETH.address} className="bg-slate-800 text-white">mETH (Mock Volatile Token)</option>
@@ -97,7 +97,7 @@ const WithdrawForm = ({ companyContract, onSuccess, onError, setActionLoading, a
                     min="0"
                     value={amount}
                     onChange={(e) => setAmount(e.target.value)}
-                    className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                    className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none"
                     placeholder="e.g., 100"
                 />
                 <button
@@ -110,7 +110,7 @@ const WithdrawForm = ({ companyContract, onSuccess, onError, setActionLoading, a
             </div>
 
             {/* Info Alert */}
-            <div className="bg-orange-900/20 border border-orange-500/30 rounded-lg p-4 flex items-start space-x-3">
+            <div className="bg-orange-900/20 border border-orange-500/30 rounded-2xl p-4 flex items-start space-x-3">
                 <AlertCircle className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
                 <div className="text-sm text-slate-300">
                     <p className="font-medium text-white mb-1">⚠️ Important:</p>
@@ -126,7 +126,7 @@ const WithdrawForm = ({ companyContract, onSuccess, onError, setActionLoading, a
             <button
                 type="submit"
                 disabled={actionLoading === 'withdrawing' || !amount || parseFloat(amount) <= 0}
-                className="w-full px-6 py-3 bg-orange-600 hover:bg-orange-500 rounded-lg text-white font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+                className="w-full px-6 py-3 bg-orange-600 hover:bg-orange-500 rounded-2xl text-white font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
             >
                 {actionLoading === 'withdrawing' ? (
                     <>

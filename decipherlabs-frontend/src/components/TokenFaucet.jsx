@@ -90,20 +90,20 @@ const TokenFaucet = ({ account }) => {
                             Distribution Info
                         </h3>
                         <div className="grid grid-cols-2 gap-4">
-                            <div className="bg-gray-900/50 rounded-lg p-4">
+                            <div className="bg-gray-900/50 rounded-2xl p-4">
                                 <p className="text-gray-400 text-sm mb-1">Per Claim</p>
                                 <p className="text-white font-semibold">{faucetInfo.stableAmountPerClaim} mUSDC</p>
                                 <p className="text-white font-semibold">{faucetInfo.volatileAmountPerClaim} mETH</p>
                             </div>
-                            <div className="bg-gray-900/50 rounded-lg p-4">
+                            <div className="bg-gray-900/50 rounded-2xl p-4">
                                 <p className="text-gray-400 text-sm mb-1">Cooldown</p>
                                 <p className="text-white font-semibold">{faucetInfo.cooldownPeriodHours} hours</p>
                             </div>
-                            <div className="bg-gray-900/50 rounded-lg p-4">
+                            <div className="bg-gray-900/50 rounded-2xl p-4">
                                 <p className="text-gray-400 text-sm mb-1">Faucet Balance</p>
                                 <p className="text-green-400 font-semibold text-sm">{parseFloat(faucetInfo.stableBalance).toLocaleString()} mUSDC</p>
                             </div>
-                            <div className="bg-gray-900/50 rounded-lg p-4">
+                            <div className="bg-gray-900/50 rounded-2xl p-4">
                                 <p className="text-gray-400 text-sm mb-1">Faucet Balance</p>
                                 <p className="text-blue-400 font-semibold text-sm">{parseFloat(faucetInfo.volatileBalance).toLocaleString()} mETH</p>
                             </div>
@@ -125,14 +125,14 @@ const TokenFaucet = ({ account }) => {
 
                     {/* Status Messages */}
                     {error && (
-                        <div className="mb-4 p-4 bg-red-500/10 border border-red-500/50 rounded-lg flex items-start">
+                        <div className="mb-4 p-4 bg-red-500/10 border border-red-500/50 rounded-2xl flex items-start">
                             <AlertCircle className="w-5 h-5 text-red-400 mr-2 flex-shrink-0 mt-0.5" />
                             <p className="text-red-400 text-sm">{error}</p>
                         </div>
                     )}
 
                     {success && (
-                        <div className="mb-4 p-4 bg-green-500/10 border border-green-500/50 rounded-lg flex items-start">
+                        <div className="mb-4 p-4 bg-green-500/10 border border-green-500/50 rounded-2xl flex items-start">
                             <CheckCircle className="w-5 h-5 text-green-400 mr-2 flex-shrink-0 mt-0.5" />
                             <p className="text-green-400 text-sm">{success}</p>
                         </div>
@@ -140,7 +140,7 @@ const TokenFaucet = ({ account }) => {
 
                     {/* Cooldown Timer */}
                     {!canClaim && timeUntilNextClaim > 0 && (
-                        <div className="mb-6 p-4 bg-yellow-500/10 border border-yellow-500/50 rounded-lg">
+                        <div className="mb-6 p-4 bg-yellow-500/10 border border-yellow-500/50 rounded-2xl">
                             <div className="flex items-center justify-center text-yellow-400">
                                 <Clock className="w-5 h-5 mr-2" />
                                 <span className="font-semibold">
@@ -154,7 +154,7 @@ const TokenFaucet = ({ account }) => {
                     <button
                         onClick={handleClaim}
                         disabled={!canClaim || loading}
-                        className={`w-full py-4 rounded-lg font-semibold text-lg transition-all ${canClaim && !loading
+                        className={`w-full py-4 rounded-2xl font-semibold text-lg transition-all ${canClaim && !loading
                             ? 'bg-blue-600 hover:bg-blue-500 text-white shadow-lg hover:shadow-xl'
                             : 'bg-slate-800 text-slate-500 cursor-not-allowed'
                             }`}
@@ -175,7 +175,7 @@ const TokenFaucet = ({ account }) => {
                     </button>
 
                     {/* Info */}
-                    <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+                    <div className="mt-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-2xl">
                         <p className="text-blue-300 text-sm">
                             <strong>Note:</strong> These are test tokens for development purposes only.
                             You can claim tokens anytime - no cooldown period!
@@ -184,7 +184,7 @@ const TokenFaucet = ({ account }) => {
                 </div>
 
                 {/* Instructions */}
-                <div className="mt-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-xl p-6">
+                <div className="mt-6 bg-gray-800/30 backdrop-blur-sm border border-gray-700 rounded-3xl p-6">
                     <h3 className="text-lg font-semibold text-white mb-3">How to use:</h3>
                     <ol className="space-y-2 text-gray-300">
                         <li className="flex items-start">

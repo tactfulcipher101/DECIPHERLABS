@@ -820,7 +820,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         <p className="text-slate-400">We found {companyList.length} company contract{companyList.length !== 1 ? 's' : ''} associated with your wallet.</p>
       </div>
 
-      <div className="bg-slate-900/50 p-6 rounded-xl border border-blue-500/20 max-h-[60vh] overflow-y-auto mb-6">
+      <div className="bg-slate-900/50 p-6 rounded-3xl border border-blue-500/20 max-h-[60vh] overflow-y-auto mb-6">
         <div className="space-y-3">
           {companyList.map((company, idx) => (
             <button
@@ -831,7 +831,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
                 localStorage.setItem(`companyName:${company.address}`, company.name);
                 setCurrentStep('dashboard');
               }}
-              className="w-full text-left p-4 rounded-xl bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700 hover:border-blue-500/50 transition-all group"
+              className="w-full text-left p-4 rounded-3xl bg-slate-800/50 hover:bg-slate-700/50 border border-slate-700 hover:border-blue-500/50 transition-all group"
             >
               <div className="flex justify-between items-center">
                 <div>
@@ -851,7 +851,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         <p className="text-slate-500 text-sm mb-4">Want to create a new company?</p>
         <button
           onClick={() => setCurrentStep('setup')}
-          className="px-6 py-2 bg-slate-800 hover:bg-slate-700 rounded-lg text-white text-sm font-medium transition-colors border border-slate-700"
+          className="px-6 py-2 bg-slate-800 hover:bg-slate-700 rounded-2xl text-white text-sm font-medium transition-colors border border-slate-700"
         >
           Deploy New Company
         </button>
@@ -864,14 +864,14 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
       <h2 className="text-2xl font-bold text-white mb-2">Company Setup</h2>
       <p className="text-slate-400 mb-8">Deploy your company's payroll smart contract.</p>
 
-      <div className="space-y-6 bg-slate-900/50 p-6 rounded-xl border border-blue-500/20">
+      <div className="space-y-6 bg-slate-900/50 p-6 rounded-3xl border border-blue-500/20">
         <div>
           <label className="block text-sm font-medium text-slate-300 mb-2">Company Name <span className="text-red-400">*</span></label>
           <input
             type="text"
             value={companyDetails.name}
             onChange={(e) => setCompanyDetails({ ...companyDetails, name: e.target.value })}
-            className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+            className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none"
             placeholder="Enter company name"
             disabled={deploymentStatus === 'deploying'}
           />
@@ -879,7 +879,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
 
         <div>
           <label className="block text-sm font-medium text-slate-300 mb-2">Admin Wallet</label>
-          <div className="w-full px-3 py-2 bg-slate-800/30 border border-slate-700 rounded-lg text-slate-400 font-mono text-sm">{account}</div>
+          <div className="w-full px-3 py-2 bg-slate-800/30 border border-slate-700 rounded-2xl text-slate-400 font-mono text-sm">{account}</div>
         </div>
 
         <div>
@@ -888,7 +888,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             type="text"
             value={companyDetails.taxRecipient}
             onChange={(e) => setCompanyDetails({ ...companyDetails, taxRecipient: e.target.value })}
-            className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+            className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none"
             placeholder="0x..."
             disabled={deploymentStatus === 'deploying'}
           />
@@ -915,10 +915,10 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           </div>
         </div>
 
-        {error && <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm">{error}</div>}
+        {error && <div className="p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm">{error}</div>}
 
         {deploymentStatus === 'success' && (
-          <div className="p-4 bg-green-500/10 border border-green-500/50 rounded-lg">
+          <div className="p-4 bg-green-500/10 border border-green-500/50 rounded-2xl">
             <div className="flex items-center space-x-3">
               <CheckCircle className="w-6 h-6 text-green-400" />
               <div>
@@ -933,7 +933,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           <button
             onClick={handleCompanySetup}
             disabled={deploymentStatus === 'deploying'}
-            className={`w-full py-3 rounded-lg text-white font-medium transition-all ${deploymentStatus === 'deploying' ? 'bg-blue-600/50 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500'
+            className={`w-full py-3 rounded-2xl text-white font-medium transition-all ${deploymentStatus === 'deploying' ? 'bg-blue-600/50 cursor-not-allowed' : 'bg-blue-600 hover:bg-blue-500'
               }`}
           >
             {deploymentStatus === 'deploying' ? (
@@ -952,7 +952,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
     <div>
       {/* Employee Portal Banner */}
       {isEmployeeView && (
-        <div className="mb-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-xl">
+        <div className="mb-6 p-4 bg-blue-900/20 border border-blue-500/30 rounded-3xl">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <Eye className="w-6 h-6 text-blue-400" />
@@ -967,7 +967,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
                 setSuccess('');
                 setCurrentStep('funding');
               }}
-              className="flex items-center space-x-2 px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg text-white transition-colors"
+              className="flex items-center space-x-2 px-4 py-2 bg-green-600 hover:bg-green-500 rounded-2xl text-white transition-colors"
             >
               <DollarSign className="w-4 h-4" />
               <span>Funding</span>
@@ -978,7 +978,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
                 setSuccess('');
                 setCurrentStep('withdraw');
               }}
-              className="flex items-center space-x-2 px-4 py-2 bg-orange-600 hover:bg-orange-500 rounded-lg text-white transition-colors"
+              className="flex items-center space-x-2 px-4 py-2 bg-orange-600 hover:bg-orange-500 rounded-2xl text-white transition-colors"
             >
               <DollarSign className="w-4 h-4" />
               <span>Withdraw Funds</span>
@@ -999,7 +999,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           {companyList.length > 0 ? (
             <button
               onClick={() => setCurrentStep('selectCompany')}
-              className="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 border border-slate-600 rounded-lg text-white hover:text-blue-300 transition-colors text-sm flex items-center space-x-2"
+              className="px-3 py-1.5 bg-slate-700 hover:bg-slate-600 border border-slate-600 rounded-2xl text-white hover:text-blue-300 transition-colors text-sm flex items-center space-x-2"
             >
               <Users className="w-4 h-4" />
               <span>Switch / New</span>
@@ -1007,13 +1007,13 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           ) : (
             <button
               onClick={() => setCurrentStep('setup')}
-              className="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-lg text-blue-400 hover:text-blue-300 transition-colors text-sm"
+              className="px-3 py-1.5 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-2xl text-blue-400 hover:text-blue-300 transition-colors text-sm"
               title="Deploy a new payroll contract"
             >
               Deploy New Contract
             </button>
           )}
-          <div className="px-3 py-1.5 bg-slate-800/50 rounded-lg border border-slate-700">
+          <div className="px-3 py-1.5 bg-slate-800/50 rounded-2xl border border-slate-700">
             <span className="text-xs text-slate-400">Contract: </span>
             <span className="text-sm text-white font-mono">{companyContract?.slice(0, 6)}...{companyContract?.slice(-4)}</span>
           </div>
@@ -1034,14 +1034,14 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               <p className="text-slate-400 mb-6">Add funds to your payroll contract. A 1% service fee will be automatically deducted.</p>
 
               {success && (
-                <div className="mb-6 p-3 bg-green-500/10 border border-green-500/50 rounded-lg text-green-400 text-sm flex items-center space-x-2">
+                <div className="mb-6 p-3 bg-green-500/10 border border-green-500/50 rounded-2xl text-green-400 text-sm flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4" />
                   <span>{success}</span>
                 </div>
               )}
 
               {error && (
-                <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm flex items-center space-x-2">
+                <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm flex items-center space-x-2">
                   <AlertCircle className="w-4 h-4" />
                   <span>{error}</span>
                 </div>
@@ -1083,14 +1083,14 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               <p className="text-slate-400 mb-6">Withdraw excess funds from your payroll contract.</p>
 
               {success && (
-                <div className="mb-6 p-3 bg-green-500/10 border border-green-500/50 rounded-lg text-green-400 text-sm flex items-center space-x-2">
+                <div className="mb-6 p-3 bg-green-500/10 border border-green-500/50 rounded-2xl text-green-400 text-sm flex items-center space-x-2">
                   <CheckCircle className="w-4 h-4" />
                   <span>{success}</span>
                 </div>
               )}
 
               {error && (
-                <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm flex items-center space-x-2">
+                <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm flex items-center space-x-2">
                   <AlertCircle className="w-4 h-4" />
                   <span>{error}</span>
                 </div>
@@ -1122,7 +1122,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             loadContractData();
           }}
           disabled={actionLoading}
-          className="flex items-center space-x-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-lg text-white transition-colors disabled:opacity-50"
+          className="flex items-center space-x-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 rounded-2xl text-white transition-colors disabled:opacity-50"
         >
           <RefreshCw className={`w-4 h-4 ${actionLoading ? 'animate-spin' : ''}`} />
           <span>Refresh Balances</span>
@@ -1131,33 +1131,33 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
-        <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+        <div className="bg-slate-900/50 p-4 rounded-3xl border border-slate-700">
           <p className="text-slate-400 text-sm">ETH Balance</p>
           <p className="text-2xl font-bold text-white">{parseFloat(contractBalance.eth).toFixed(4)}</p>
         </div>
-        <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+        <div className="bg-slate-900/50 p-4 rounded-3xl border border-slate-700">
           <p className="text-slate-400 text-sm">mUSDC Balance</p>
           <p className="text-2xl font-bold text-white">{parseFloat(contractBalance.usdc).toFixed(2)}</p>
         </div>
-        <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+        <div className="bg-slate-900/50 p-4 rounded-3xl border border-slate-700">
           <p className="text-slate-400 text-sm">Employees</p>
           <p className="text-2xl font-bold text-white">{employees.length}</p>
         </div>
-        <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+        <div className="bg-slate-900/50 p-4 rounded-3xl border border-slate-700">
           <p className="text-slate-400 text-sm">mETH Balance</p>
           <p className="text-2xl font-bold text-white">{parseFloat(contractBalance.meth).toFixed(4)}</p>
         </div>
       </div>
 
       {success && (
-        <div className="mb-6 p-3 bg-green-500/10 border border-green-500/50 rounded-lg text-green-400 text-sm flex items-center space-x-2">
+        <div className="mb-6 p-3 bg-green-500/10 border border-green-500/50 rounded-2xl text-green-400 text-sm flex items-center space-x-2">
           <CheckCircle className="w-4 h-4" />
           <span>{success}</span>
         </div>
       )}
 
       {error && (
-        <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm flex items-center space-x-2">
+        <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm flex items-center space-x-2">
           <AlertCircle className="w-4 h-4" />
           <span>{error}</span>
         </div>
@@ -1165,7 +1165,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
 
       {/* Action Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-        <button onClick={() => setCurrentStep('funding')} className="p-6 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-xl transition-colors text-left group">
+        <button onClick={() => setCurrentStep('funding')} className="p-6 bg-blue-600/20 hover:bg-blue-600/30 border border-blue-500/30 rounded-3xl transition-colors text-left group">
           <div className="flex items-center space-x-3 mb-3">
             <DollarSign className="w-6 h-6 text-blue-400 group-hover:scale-110 transition-transform" />
             <h3 className="text-lg font-semibold text-white">Funding</h3>
@@ -1173,7 +1173,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           <p className="text-slate-400 text-sm">Add funds to pay salaries</p>
         </button>
 
-        <button onClick={() => setCurrentStep('employees')} className="p-6 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 rounded-xl transition-colors text-left group">
+        <button onClick={() => setCurrentStep('employees')} className="p-6 bg-green-600/20 hover:bg-green-600/30 border border-green-500/30 rounded-3xl transition-colors text-left group">
           <div className="flex items-center space-x-3 mb-3">
             <Users className="w-6 h-6 text-green-400 group-hover:scale-110 transition-transform" />
             <h3 className="text-lg font-semibold text-white">Employees</h3>
@@ -1181,7 +1181,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           <p className="text-slate-400 text-sm">Manage team ({employees.length})</p>
         </button>
 
-        <button onClick={() => setCurrentStep('payments')} className="p-6 bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 rounded-xl transition-colors text-left group">
+        <button onClick={() => setCurrentStep('payments')} className="p-6 bg-purple-600/20 hover:bg-purple-600/30 border border-purple-500/30 rounded-3xl transition-colors text-left group">
           <div className="flex items-center space-x-3 mb-3">
             <TrendingUp className="w-6 h-6 text-purple-400 group-hover:scale-110 transition-transform" />
             <h3 className="text-lg font-semibold text-white">Payments</h3>
@@ -1189,7 +1189,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           <p className="text-slate-400 text-sm">Process salary payments</p>
         </button>
 
-        <button onClick={() => setCurrentStep('settings')} className="p-6 bg-slate-600/20 hover:bg-slate-600/30 border border-slate-500/30 rounded-xl transition-colors text-left group">
+        <button onClick={() => setCurrentStep('settings')} className="p-6 bg-slate-600/20 hover:bg-slate-600/30 border border-slate-500/30 rounded-3xl transition-colors text-left group">
           <div className="flex items-center space-x-3 mb-3">
             <Shield className="w-6 h-6 text-slate-400 group-hover:scale-110 transition-transform" />
             <h3 className="text-lg font-semibold text-white">Settings</h3>
@@ -1197,7 +1197,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           <p className="text-slate-400 text-sm">Configure tax and hedge vault</p>
         </button>
 
-        <button onClick={() => onNavigate && onNavigate('faucet')} className="p-6 bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 rounded-xl transition-colors text-left group">
+        <button onClick={() => onNavigate && onNavigate('faucet')} className="p-6 bg-indigo-600/20 hover:bg-indigo-600/30 border border-indigo-500/30 rounded-3xl transition-colors text-left group">
           <div className="flex items-center space-x-3 mb-3">
             <Droplet className="w-6 h-6 text-indigo-400 group-hover:scale-110 transition-transform" />
             <h3 className="text-lg font-semibold text-white">Test Faucet</h3>
@@ -1208,16 +1208,16 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
 
       {/* Quick Actions */}
       <div className="flex flex-wrap gap-4">
-        <button onClick={() => setCurrentStep('addEmployee')} className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg text-white flex items-center space-x-2 transition-colors">
+        <button onClick={() => setCurrentStep('addEmployee')} className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-2xl text-white flex items-center space-x-2 transition-colors">
           <Plus className="w-4 h-4" />
           <span>Add Employee</span>
         </button>
-        <button onClick={() => setCurrentStep('funding')} className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white transition-colors">
+        <button onClick={() => setCurrentStep('funding')} className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-2xl text-white transition-colors">
           Fund Contract
         </button>
         <button
           onClick={() => onNavigate && onNavigate('faucet')}
-          className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-lg text-white flex items-center space-x-2 transition-colors"
+          className="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 rounded-2xl text-white flex items-center space-x-2 transition-colors"
         >
           <Droplet className="w-4 h-4" />
           <span>Get Test Tokens</span>
@@ -1235,9 +1235,9 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </button>
       </div>
 
-      <div className="bg-slate-900/50 p-6 rounded-xl border border-blue-500/20">
+      <div className="bg-slate-900/50 p-6 rounded-3xl border border-blue-500/20">
         <div className="flex flex-wrap gap-4 mb-6">
-          <button onClick={() => setCurrentStep('addEmployee')} className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg text-white flex items-center space-x-2">
+          <button onClick={() => setCurrentStep('addEmployee')} className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-2xl text-white flex items-center space-x-2">
             <Plus className="w-4 h-4" /><span>Add Employee</span>
           </button>
         </div>
@@ -1395,9 +1395,9 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </button>
       </div>
 
-      {error && <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm">{error}</div>}
+      {error && <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm">{error}</div>}
 
-      <div className="bg-slate-900/50 p-6 rounded-xl border border-blue-500/20">
+      <div className="bg-slate-900/50 p-6 rounded-3xl border border-blue-500/20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="md:col-span-2">
             <label className="block text-sm font-medium text-slate-300 mb-2">Employee Name</label>
@@ -1405,7 +1405,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               type="text"
               value={newEmployee.name}
               onChange={(e) => setNewEmployee({ ...newEmployee, name: e.target.value })}
-              className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+              className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none"
               placeholder="John Doe"
             />
             <p className="text-xs text-slate-500 mt-1">Optional - for display purposes only</p>
@@ -1417,7 +1417,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               type="text"
               value={newEmployee.walletAddress}
               onChange={(e) => setNewEmployee({ ...newEmployee, walletAddress: e.target.value })}
-              className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+              className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none"
               placeholder="0x..."
             />
           </div>
@@ -1428,7 +1428,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               type="number"
               value={newEmployee.salary}
               onChange={(e) => setNewEmployee({ ...newEmployee, salary: e.target.value })}
-              className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+              className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none"
               placeholder="5000"
             />
           </div>
@@ -1438,7 +1438,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <select
               value={newEmployee.currency}
               onChange={(e) => setNewEmployee({ ...newEmployee, currency: e.target.value })}
-              className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none cursor-pointer appearance-none"
+              className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none cursor-pointer appearance-none"
             >
               <option value="mUSDC" className="bg-slate-800 text-white">mUSDC (Mock Stablecoin)</option>
               <option value="mETH" className="bg-slate-800 text-white">mETH (Mock Volatile)</option>
@@ -1451,7 +1451,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <select
               value={newEmployee.paymentSchedule}
               onChange={(e) => setNewEmployee({ ...newEmployee, paymentSchedule: e.target.value })}
-              className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none cursor-pointer appearance-none"
+              className="w-full px-3 py-2 bg-slate-800 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none cursor-pointer appearance-none"
             >
               <option value="minutely" className="bg-slate-800 text-white">Every Minute (Testing)</option>
               <option value="hourly" className="bg-slate-800 text-white">Hourly (Testing)</option>
@@ -1470,7 +1470,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               max="100"
               value={newEmployee.taxBps}
               onChange={(e) => setNewEmployee({ ...newEmployee, taxBps: parseFloat(e.target.value) || 0 })}
-              className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+              className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none"
               placeholder="e.g., 7 for 7%"
             />
             <p className="text-xs text-slate-500 mt-1">Enter as percentage (e.g., 7 = 7%)</p>
@@ -1478,11 +1478,11 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </div>
 
         <div className="mt-6 flex space-x-4">
-          <button onClick={() => setCurrentStep('employees')} className="px-4 py-2 bg-slate-600 hover:bg-slate-500 rounded-lg text-white">Cancel</button>
+          <button onClick={() => setCurrentStep('employees')} className="px-4 py-2 bg-slate-600 hover:bg-slate-500 rounded-2xl text-white">Cancel</button>
           <button
             onClick={handleAddEmployee}
             disabled={actionLoading === 'addEmployee'}
-            className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg text-white disabled:opacity-50"
+            className="px-4 py-2 bg-green-600 hover:bg-green-500 rounded-2xl text-white disabled:opacity-50"
           >
             {actionLoading === 'addEmployee' ? 'Adding...' : 'Add Employee'}
           </button>
@@ -1497,7 +1497,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </p>
 
         {/* CSV Format Guide */}
-        <div className="mb-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+        <div className="mb-4 p-3 bg-blue-500/10 border border-blue-500/30 rounded-2xl">
           <p className="text-blue-300 text-sm font-medium mb-2">CSV Format:</p>
           <code className="text-xs text-slate-300 block">
             Name,Wallet Address,Salary,Token,Schedule,Tax%<br />
@@ -1514,7 +1514,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             onChange={handleCSVUpload}
             className="block w-full text-sm text-slate-400
               file:mr-4 file:py-2 file:px-4
-              file:rounded-lg file:border-0
+              file:rounded-2xl file:border-0
               file:text-sm file:font-semibold
               file:bg-blue-600 file:text-white
               hover:file:bg-blue-500
@@ -1528,7 +1528,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <h4 className="text-white font-medium mb-2">
               Preview ({csvData.filter(r => r.valid).length} valid, {csvData.filter(r => !r.valid).length} invalid)
             </h4>
-            <div className="max-h-60 overflow-y-auto bg-slate-800/50 rounded-lg p-3">
+            <div className="max-h-60 overflow-y-auto bg-slate-800/50 rounded-2xl p-3">
               {csvData.map((row, idx) => (
                 <div
                   key={idx}
@@ -1548,7 +1548,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
 
             {/* Upload Progress */}
             {uploadProgress.status && (
-              <div className="mt-3 p-3 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+              <div className="mt-3 p-3 bg-blue-500/10 border border-blue-500/30 rounded-2xl">
                 <p className="text-blue-300 text-sm">{uploadProgress.status}</p>
                 <div className="mt-2 bg-slate-700 rounded-full h-2">
                   <div
@@ -1566,7 +1566,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <button
               onClick={handleBulkAddEmployees}
               disabled={actionLoading === 'bulk-add' || csvData.filter(r => r.valid).length === 0}
-              className="mt-4 w-full px-4 py-2 bg-green-600 hover:bg-green-500 rounded-lg text-white disabled:opacity-50"
+              className="mt-4 w-full px-4 py-2 bg-green-600 hover:bg-green-500 rounded-2xl text-white disabled:opacity-50"
             >
               {actionLoading === 'bulk-add' ? 'Adding Employees...' : `Add ${csvData.filter(r => r.valid).length} Employee(s)`}
             </button>
@@ -1610,38 +1610,38 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </button>
       </div>
 
-      {error && <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm">{error}</div>}
-      {success && <div className="mb-4 p-3 bg-green-500/10 border border-green-500/50 rounded-lg text-green-400 text-sm">{success}</div>}
+      {error && <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm">{error}</div>}
+      {success && <div className="mb-4 p-3 bg-green-500/10 border border-green-500/50 rounded-2xl text-green-400 text-sm">{success}</div>}
 
       {/* Current Balances */}
       <div className="grid grid-cols-3 gap-4 mb-6">
-        <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+        <div className="bg-slate-900/50 p-4 rounded-3xl border border-slate-700">
           <p className="text-slate-400 text-sm">ETH Balance</p>
           <p className="text-xl font-bold text-white">{parseFloat(contractBalance.eth).toFixed(4)} ETH</p>
         </div>
-        <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+        <div className="bg-slate-900/50 p-4 rounded-3xl border border-slate-700">
           <p className="text-slate-400 text-sm">mUSDC Balance</p>
           <p className="text-xl font-bold text-white">{parseFloat(contractBalance.usdc).toFixed(2)} mUSDC</p>
         </div>
-        <div className="bg-slate-900/50 p-4 rounded-xl border border-slate-700">
+        <div className="bg-slate-900/50 p-4 rounded-3xl border border-slate-700">
           <p className="text-slate-400 text-sm">mETH Balance</p>
           <p className="text-xl font-bold text-white">{parseFloat(contractBalance.meth).toFixed(4)} mETH</p>
         </div>
       </div>
 
       {/* Funding Section with FundingForm */}
-      <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-700">
+      <div className="bg-slate-900/50 p-6 rounded-3xl border border-slate-700">
         <h3 className="text-xl font-bold text-white mb-6">Fund Your Contract</h3>
 
         {success && (
-          <div className="mb-6 p-3 bg-green-500/10 border border-green-500/50 rounded-lg text-green-400 text-sm flex items-center space-x-2">
+          <div className="mb-6 p-3 bg-green-500/10 border border-green-500/50 rounded-2xl text-green-400 text-sm flex items-center space-x-2">
             <CheckCircle className="w-4 h-4" />
             <span>{success}</span>
           </div>
         )}
 
         {error && (
-          <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm flex items-center space-x-2">
+          <div className="mb-6 p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm flex items-center space-x-2">
             <AlertCircle className="w-4 h-4" />
             <span>{error}</span>
           </div>
@@ -1660,7 +1660,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
       </div>
 
       {/* Withdraw Section */}
-      <div className="bg-slate-900/50 p-6 rounded-xl border border-slate-700 mt-6">
+      <div className="bg-slate-900/50 p-6 rounded-3xl border border-slate-700 mt-6">
         <h3 className="text-xl font-bold text-white mb-6">Withdraw Funds</h3>
         <p className="text-slate-400 text-sm mb-6">
           Emergency withdrawal of funds from the contract. Only use this if you need to recover funds.
@@ -1689,11 +1689,11 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </button>
       </div>
 
-      {error && <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm">{error}</div>}
-      {success && <div className="mb-4 p-3 bg-green-500/10 border border-green-500/50 rounded-lg text-green-400 text-sm">{success}</div>}
+      {error && <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm">{error}</div>}
+      {success && <div className="mb-4 p-3 bg-green-500/10 border border-green-500/50 rounded-2xl text-green-400 text-sm">{success}</div>}
 
-      <div className="bg-slate-900/50 p-6 rounded-xl border border-blue-500/20">
-        <div className="mb-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-lg">
+      <div className="bg-slate-900/50 p-6 rounded-3xl border border-blue-500/20">
+        <div className="mb-6 p-4 bg-blue-500/10 border border-blue-500/30 rounded-2xl">
           <h3 className="text-white font-medium mb-2 flex items-center space-x-2">
             <Clock className="w-4 h-4 text-blue-400" />
             <span>Payment Overview</span>
@@ -1719,7 +1719,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </div>
 
         {/* Bulk Payment Control */}
-        <div className="mb-6 p-8 bg-slate-800/50 rounded-xl border border-slate-700 flex flex-col items-center text-center">
+        <div className="mb-6 p-8 bg-slate-800/50 rounded-3xl border border-slate-700 flex flex-col items-center text-center">
           <div className="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center mb-4">
             <DollarSign className="w-8 h-8 text-green-400" />
           </div>
@@ -1732,7 +1732,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
           <button
             onClick={handleProcessAllPayments}
             disabled={actionLoading === 'batch-pay' || employees.filter(e => e.active).length === 0}
-            className="px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-xl text-white font-bold text-lg shadow-lg flex items-center space-x-3 disabled:opacity-50 disabled:grayscale transition-all transform hover:-translate-y-1"
+            className="px-8 py-4 bg-blue-600 hover:bg-blue-500 rounded-3xl text-white font-bold text-lg shadow-lg flex items-center space-x-3 disabled:opacity-50 disabled:grayscale transition-all transform hover:-translate-y-1"
           >
             {actionLoading === 'batch-pay' ? (
               <RefreshCw className="w-6 h-6 animate-spin" />
@@ -1758,7 +1758,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             {employees.map((emp, idx) => (
               <div
                 key={idx}
-                className={`flex items-center justify-between p-4 rounded-lg border ${emp.active
+                className={`flex items-center justify-between p-4 rounded-2xl border ${emp.active
                   ? 'bg-slate-800/50 border-slate-700'
                   : 'bg-slate-900/30 border-slate-800 opacity-70'
                   }`}
@@ -1783,7 +1783,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
                   <button
                     onClick={() => handleProcessPayment(emp.address)}
                     disabled={actionLoading === `pay-${emp.address}` || !emp.active}
-                    className={`px-4 py-2 rounded-lg text-white text-sm flex items-center space-x-2 ${emp.active
+                    className={`px-4 py-2 rounded-2xl text-white text-sm flex items-center space-x-2 ${emp.active
                       ? 'bg-green-600 hover:bg-green-500 disabled:opacity-50 disabled:cursor-not-allowed'
                       : 'bg-slate-600 cursor-not-allowed opacity-60'
                       }`}
@@ -1842,7 +1842,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             </button>
             <button
               onClick={loadContractData}
-              className="p-2 bg-slate-800 rounded-lg hover:bg-slate-700 transition-colors"
+              className="p-2 bg-slate-800 rounded-2xl hover:bg-slate-700 transition-colors"
               title="Refresh Data"
             >
               <RefreshCw className={`w-5 h-5 text-blue-400 ${loading ? 'animate-spin' : ''}`} />
@@ -1852,7 +1852,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
 
         {/* Status Card */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-slate-900/50 p-6 rounded-xl border border-blue-500/20">
+          <div className="bg-slate-900/50 p-6 rounded-3xl border border-blue-500/20">
             <div className="flex items-center space-x-3 mb-2">
               <div className={`w-3 h-3 rounded-full ${employeeData?.active ? 'bg-green-500' : 'bg-red-500'}`} />
               <h3 className="text-slate-400 text-sm font-medium">Status</h3>
@@ -1860,7 +1860,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <p className="text-2xl font-bold text-white">{employeeData?.active ? 'Active' : 'Inactive'}</p>
           </div>
 
-          <div className="bg-slate-900/50 p-6 rounded-xl border border-purple-500/20">
+          <div className="bg-slate-900/50 p-6 rounded-3xl border border-purple-500/20">
             <div className="flex items-center space-x-3 mb-2">
               <DollarSign className="w-4 h-4 text-purple-400" />
               <h3 className="text-slate-400 text-sm font-medium">Salary</h3>
@@ -1871,7 +1871,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <p className="text-xs text-slate-500 mt-1">Per {employeeData?.interval} days</p>
           </div>
 
-          <div className="bg-slate-900/50 p-6 rounded-xl border border-green-500/20">
+          <div className="bg-slate-900/50 p-6 rounded-3xl border border-green-500/20">
             <div className="flex items-center space-x-3 mb-2">
               <Clock className="w-4 h-4 text-green-400" />
               <h3 className="text-slate-400 text-sm font-medium">Next Payment</h3>
@@ -1883,7 +1883,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </div>
 
         {/* Recent Activity / Info */}
-        <div className="bg-slate-900/50 rounded-xl border border-slate-800 overflow-hidden">
+        <div className="bg-slate-900/50 rounded-3xl border border-slate-800 overflow-hidden">
           <div className="p-6 border-b border-slate-800">
             <h3 className="text-lg font-semibold text-white">Employment Details</h3>
           </div>
@@ -1921,12 +1921,12 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </button>
       </div>
 
-      {error && <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-lg text-red-400 text-sm">{error}</div>}
-      {success && <div className="mb-4 p-3 bg-green-500/10 border border-green-500/50 rounded-lg text-green-400 text-sm">{success}</div>}
+      {error && <div className="mb-4 p-3 bg-red-500/10 border border-red-500/50 rounded-2xl text-red-400 text-sm">{error}</div>}
+      {success && <div className="mb-4 p-3 bg-green-500/10 border border-green-500/50 rounded-2xl text-green-400 text-sm">{success}</div>}
 
       <div className="space-y-6">
         {/* Hedge Vault Configuration */}
-        <div className="bg-slate-900/50 p-6 rounded-xl border border-blue-500/20">
+        <div className="bg-slate-900/50 p-6 rounded-3xl border border-blue-500/20">
           <h3 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
             <TrendingUp className="w-5 h-5 text-blue-400" />
             <span>Hedge Vault Configuration</span>
@@ -1941,7 +1941,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               <select
                 value={selectedEmployeeForHedge}
                 onChange={(e) => setSelectedEmployeeForHedge(e.target.value)}
-                className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+                className="w-full px-3 py-2 bg-slate-800/50 border border-slate-700 rounded-2xl text-white focus:border-blue-500 focus:outline-none"
               >
                 <option value="">Select Employee</option>
                 {employees.filter(e => e.active).map((emp, idx) => (
@@ -1963,7 +1963,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
                   <button
                     key={risk.value}
                     onClick={() => setHedgeVaultConfig({ ...hedgeVaultConfig, riskLevel: risk.value })}
-                    className={`p-4 rounded-lg border-2 transition-all ${hedgeVaultConfig.riskLevel === risk.value
+                    className={`p-4 rounded-2xl border-2 transition-all ${hedgeVaultConfig.riskLevel === risk.value
                       ? 'border-blue-500 bg-blue-500/10'
                       : 'border-slate-700 bg-slate-800/30 hover:border-slate-600'
                       }`}
@@ -1996,7 +1996,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <button
               onClick={handleConfigureHedgeVault}
               disabled={actionLoading === 'configure-hedge' || !selectedEmployeeForHedge}
-              className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full px-4 py-3 bg-blue-600 hover:bg-blue-500 rounded-2xl text-white font-medium disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {actionLoading === 'configure-hedge' ? 'Configuring...' : 'Configure Hedge Vault'}
             </button>
@@ -2004,14 +2004,14 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
         </div>
 
         {/* Tax Settings */}
-        <div className="bg-slate-900/50 p-6 rounded-xl border border-purple-500/20">
+        <div className="bg-slate-900/50 p-6 rounded-3xl border border-purple-500/20">
           <h3 className="text-lg font-semibold text-white mb-4 flex items-center space-x-2">
             <Shield className="w-5 h-5 text-purple-400" />
             <span>Tax Settings</span>
           </h3>
 
           <div className="space-y-4">
-            <div className="p-4 bg-slate-800/50 rounded-lg">
+            <div className="p-4 bg-slate-800/50 rounded-2xl">
               <div className="flex items-center justify-between">
                 <div>
                   <p className="text-white font-medium">Enable Tax System</p>
@@ -2031,7 +2031,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               </div>
             </div>
 
-            <div className="p-4 bg-slate-800/50 rounded-lg">
+            <div className="p-4 bg-slate-800/50 rounded-2xl">
               <label className="block text-sm font-medium text-slate-300 mb-2">
                 Tax Recipient Address
               </label>
@@ -2043,20 +2043,20 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
                   type="text"
                   value={taxSettings.recipientAddress}
                   onChange={(e) => setTaxSettings({ ...taxSettings, recipientAddress: e.target.value })}
-                  className="flex-1 px-3 py-2 bg-slate-700/50 border border-slate-600 rounded-lg text-white focus:border-purple-500 focus:outline-none"
+                  className="flex-1 px-3 py-2 bg-slate-700/50 border border-slate-600 rounded-2xl text-white focus:border-purple-500 focus:outline-none"
                   placeholder="0x..."
                 />
                 <button
                   onClick={handleSetTaxRecipient}
                   disabled={actionLoading === 'set-tax-recipient' || !taxSettings.recipientAddress}
-                  className="px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-lg text-white disabled:opacity-50 whitespace-nowrap"
+                  className="px-4 py-2 bg-purple-600 hover:bg-purple-500 rounded-2xl text-white disabled:opacity-50 whitespace-nowrap"
                 >
                   {actionLoading === 'set-tax-recipient' ? 'Updating...' : 'Update'}
                 </button>
               </div>
             </div>
 
-            <div className="p-3 bg-purple-500/10 border border-purple-500/30 rounded-lg">
+            <div className="p-3 bg-purple-500/10 border border-purple-500/30 rounded-2xl">
               <p className="text-purple-300 text-sm">
                 <strong>Status:</strong> Tax system is currently {taxSettings.enabled ? '✅ ENABLED' : '❌ DISABLED'}
               </p>
@@ -2076,14 +2076,14 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
   const renderNotConnected = () => (
     <div className="flex items-center justify-center min-h-[50vh]">
       <div className="text-center">
-        <div className="bg-slate-900/50 p-8 rounded-xl border border-blue-500/20 max-w-md">
+        <div className="bg-slate-900/50 p-8 rounded-3xl border border-blue-500/20 max-w-md">
           <Wallet className="w-12 h-12 text-blue-400 mx-auto mb-4" />
           <h3 className="text-xl font-bold text-white mb-4">Connect Your Wallet</h3>
           <p className="text-slate-400 mb-6">Connect your wallet to access or create your payroll dashboard.</p>
           <button
             onClick={handleConnect}
             disabled={loading}
-            className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-lg text-white font-medium transition-colors disabled:opacity-50"
+            className="px-6 py-3 bg-blue-600 hover:bg-blue-500 rounded-2xl text-white font-medium transition-colors disabled:opacity-50"
           >
             {loading ? 'Connecting...' : 'Connect Wallet'}
           </button>
@@ -2117,19 +2117,19 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
             <div className="flex items-center space-x-4">
               <button
                 onClick={() => onNavigate && onNavigate('faucet')}
-                className="px-3 py-2 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 rounded-lg text-blue-400 hover:text-blue-300 transition-colors flex items-center space-x-2 text-sm font-medium shadow-sm"
+                className="px-3 py-2 bg-blue-600/10 hover:bg-blue-600/20 border border-blue-500/30 rounded-2xl text-blue-400 hover:text-blue-300 transition-colors flex items-center space-x-2 text-sm font-medium shadow-sm"
               >
                 <Droplet className="w-4 h-4" />
                 <span>Get Tokens</span>
               </button>
               {account ? (
                 <div className="flex items-center space-x-4">
-                  <div className="text-sm text-slate-300 font-mono bg-slate-800/50 px-3 py-1.5 rounded-lg">
+                  <div className="text-sm text-slate-300 font-mono bg-slate-800/50 px-3 py-1.5 rounded-2xl">
                     {account?.slice(0, 6)}...{account?.slice(-4)}
                   </div>
                   <button
                     onClick={onDisconnect}
-                    className="px-4 py-2 bg-rose-600 hover:bg-rose-500 rounded-lg text-white transition-colors flex items-center space-x-2"
+                    className="px-4 py-2 bg-rose-600 hover:bg-rose-500 rounded-2xl text-white transition-colors flex items-center space-x-2"
                   >
                     <LogOut className="w-4 h-4" />
                     <span>Disconnect</span>
@@ -2138,7 +2138,7 @@ const PayrollDashboard = ({ account, setAccount, onNavigate, onDisconnect }) => 
               ) : (
                 <button
                   onClick={handleConnect}
-                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-lg text-white transition-colors"
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-500 rounded-2xl text-white transition-colors"
                 >
                   Connect Wallet
                 </button>
